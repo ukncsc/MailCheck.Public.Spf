@@ -1,0 +1,1 @@
+﻿GRANT SELECT ON `spf_entity` TO '{env}-spf-api' IDENTIFIED BY '{password}';

@@ -1,0 +1,1738 @@
+﻿{
+    "records": {
+        "records": [{
+                "recordsStrings": [
+                    "v=spf1 ip4:194.81.188.81 ip4:194.81.188.162 ip4:212.64.136.76 ip4:91.206.188.52 ip4:50.31.45.194 ip4:46.22.140.58 ip4:212.84.172.244 ip4:64.106.241.145 ip4:194.74.253.10 ip4:62.255.126.79 ip4:149.72.228.91 include:spf.protection.outlook.com",
+                    " include:_spf.createsend.com include:havaspeople.com include:oxfordabstracts.com include:mh.blackboard.com include:cust-spf.exacttarget.com -all"
+                ],
+                "version": {
+                    "value": "v=spf1",
+                    "valid": true,
+                    "explanation": null
+                },
+                "isRoot": true,
+                "terms": [{
+                        "ip": "194.81.188.81",
+                        "ip4Cidr": 32,
+                        "qualifier": "Pass",
+                        "termType": "Ip4",
+                        "value": "ip4:194.81.188.81",
+                        "valid": true,
+                        "explanation": null
+                    }, {
+                        "ip": "194.81.188.162",
+                        "ip4Cidr": 32,
+                        "qualifier": "Pass",
+                        "termType": "Ip4",
+                        "value": "ip4:194.81.188.162",
+                        "valid": true,
+                        "explanation": null
+                    }, {
+                        "ip": "212.64.136.76",
+                        "ip4Cidr": 32,
+                        "qualifier": "Pass",
+                        "termType": "Ip4",
+                        "value": "ip4:212.64.136.76",
+                        "valid": true,
+                        "explanation": null
+                    }, {
+                        "ip": "91.206.188.52",
+                        "ip4Cidr": 32,
+                        "qualifier": "Pass",
+                        "termType": "Ip4",
+                        "value": "ip4:91.206.188.52",
+                        "valid": true,
+                        "explanation": null
+                    }, {
+                        "ip": "50.31.45.194",
+                        "ip4Cidr": 32,
+                        "qualifier": "Pass",
+                        "termType": "Ip4",
+                        "value": "ip4:50.31.45.194",
+                        "valid": true,
+                        "explanation": null
+                    }, {
+                        "ip": "46.22.140.58",
+                        "ip4Cidr": 32,
+                        "qualifier": "Pass",
+                        "termType": "Ip4",
+                        "value": "ip4:46.22.140.58",
+                        "valid": true,
+                        "explanation": null
+                    }, {
+                        "ip": "212.84.172.244",
+                        "ip4Cidr": 32,
+                        "qualifier": "Pass",
+                        "termType": "Ip4",
+                        "value": "ip4:212.84.172.244",
+                        "valid": true,
+                        "explanation": null
+                    }, {
+                        "ip": "64.106.241.145",
+                        "ip4Cidr": 32,
+                        "qualifier": "Pass",
+                        "termType": "Ip4",
+                        "value": "ip4:64.106.241.145",
+                        "valid": true,
+                        "explanation": null
+                    }, {
+                        "ip": "194.74.253.10",
+                        "ip4Cidr": 32,
+                        "qualifier": "Pass",
+                        "termType": "Ip4",
+                        "value": "ip4:194.74.253.10",
+                        "valid": true,
+                        "explanation": null
+                    }, {
+                        "ip": "62.255.126.79",
+                        "ip4Cidr": 32,
+                        "qualifier": "Pass",
+                        "termType": "Ip4",
+                        "value": "ip4:62.255.126.79",
+                        "valid": true,
+                        "explanation": null
+                    }, {
+                        "ip": "149.72.228.91",
+                        "ip4Cidr": 32,
+                        "qualifier": "Pass",
+                        "termType": "Ip4",
+                        "value": "ip4:149.72.228.91",
+                        "valid": true,
+                        "explanation": null
+                    }, {
+                        "domain": "spf.protection.outlook.com",
+                        "records": {
+                            "records": [{
+                                    "recordsStrings": [
+                                        "v=spf1 ip4:40.92.0.0/15 ip4:40.107.0.0/16 ip4:52.100.0.0/14 ip4:104.47.0.0/17 ip6:2a01:111:f400::/48 ip6:2a01:111:f403::/48 include:spfd.protection.outlook.com -all"
+                                    ],
+                                    "version": {
+                                        "value": "v=spf1",
+                                        "valid": true,
+                                        "explanation": null
+                                    },
+                                    "isRoot": false,
+                                    "terms": [{
+                                            "ip": "40.92.0.0",
+                                            "ip4Cidr": 15,
+                                            "qualifier": "Pass",
+                                            "termType": "Ip4",
+                                            "value": "ip4:40.92.0.0/15",
+                                            "valid": true,
+                                            "explanation": null
+                                        }, {
+                                            "ip": "40.107.0.0",
+                                            "ip4Cidr": 16,
+                                            "qualifier": "Pass",
+                                            "termType": "Ip4",
+                                            "value": "ip4:40.107.0.0/16",
+                                            "valid": true,
+                                            "explanation": null
+                                        }, {
+                                            "ip": "52.100.0.0",
+                                            "ip4Cidr": 14,
+                                            "qualifier": "Pass",
+                                            "termType": "Ip4",
+                                            "value": "ip4:52.100.0.0/14",
+                                            "valid": true,
+                                            "explanation": null
+                                        }, {
+                                            "ip": "104.47.0.0",
+                                            "ip4Cidr": 17,
+                                            "qualifier": "Pass",
+                                            "termType": "Ip4",
+                                            "value": "ip4:104.47.0.0/17",
+                                            "valid": true,
+                                            "explanation": null
+                                        }, {
+                                            "ip": "2a01:111:f400::",
+                                            "ip6Cidr": 48,
+                                            "qualifier": "Pass",
+                                            "termType": "Ip6",
+                                            "value": "ip6:2a01:111:f400::/48",
+                                            "valid": true,
+                                            "explanation": null
+                                        }, {
+                                            "ip": "2a01:111:f403::",
+                                            "ip6Cidr": 48,
+                                            "qualifier": "Pass",
+                                            "termType": "Ip6",
+                                            "value": "ip6:2a01:111:f403::/48",
+                                            "valid": true,
+                                            "explanation": null
+                                        }, {
+                                            "domain": "spfd.protection.outlook.com",
+                                            "records": null,
+                                            "qualifier": "Pass",
+                                            "termType": "Include",
+                                            "value": "include:spfd.protection.outlook.com",
+                                            "valid": true,
+                                            "explanation": null
+                                        }, {
+                                            "implicit": false,
+                                            "qualifier": "Fail",
+                                            "termType": "All",
+                                            "value": "-all",
+                                            "valid": true,
+                                            "explanation": null
+                                        }
+                                    ],
+                                    "messages": []
+                                }
+                            ],
+                            "payloadSizeBytes": 232,
+                            "messages": []
+                        },
+                        "qualifier": "Pass",
+                        "termType": "Include",
+                        "value": "include:spf.protection.outlook.com",
+                        "valid": true,
+                        "explanation": null
+                    }, {
+                        "domain": "_spf.createsend.com",
+                        "records": {
+                            "records": [{
+                                    "recordsStrings": [
+                                        "v=spf1 ip4:103.28.42.0/24 ip4:146.88.28.0/24 ip4:163.47.180.0/22 ip4:203.55.21.0/24 ip4:204.75.142.0/24 ip4:27.126.146.0/24 ~all"
+                                    ],
+                                    "version": {
+                                        "value": "v=spf1",
+                                        "valid": true,
+                                        "explanation": null
+                                    },
+                                    "isRoot": false,
+                                    "terms": [{
+                                            "ip": "103.28.42.0",
+                                            "ip4Cidr": 24,
+                                            "qualifier": "Pass",
+                                            "termType": "Ip4",
+                                            "value": "ip4:103.28.42.0/24",
+                                            "valid": true,
+                                            "explanation": null
+                                        }, {
+                                            "ip": "146.88.28.0",
+                                            "ip4Cidr": 24,
+                                            "qualifier": "Pass",
+                                            "termType": "Ip4",
+                                            "value": "ip4:146.88.28.0/24",
+                                            "valid": true,
+                                            "explanation": null
+                                        }, {
+                                            "ip": "163.47.180.0",
+                                            "ip4Cidr": 22,
+                                            "qualifier": "Pass",
+                                            "termType": "Ip4",
+                                            "value": "ip4:163.47.180.0/22",
+                                            "valid": true,
+                                            "explanation": null
+                                        }, {
+                                            "ip": "203.55.21.0",
+                                            "ip4Cidr": 24,
+                                            "qualifier": "Pass",
+                                            "termType": "Ip4",
+                                            "value": "ip4:203.55.21.0/24",
+                                            "valid": true,
+                                            "explanation": null
+                                        }, {
+                                            "ip": "204.75.142.0",
+                                            "ip4Cidr": 24,
+                                            "qualifier": "Pass",
+                                            "termType": "Ip4",
+                                            "value": "ip4:204.75.142.0/24",
+                                            "valid": true,
+                                            "explanation": null
+                                        }, {
+                                            "ip": "27.126.146.0",
+                                            "ip4Cidr": 24,
+                                            "qualifier": "Pass",
+                                            "termType": "Ip4",
+                                            "value": "ip4:27.126.146.0/24",
+                                            "valid": true,
+                                            "explanation": null
+                                        }, {
+                                            "implicit": false,
+                                            "qualifier": "SoftFail",
+                                            "termType": "All",
+                                            "value": "~all",
+                                            "valid": true,
+                                            "explanation": null
+                                        }
+                                    ],
+                                    "messages": []
+                                }
+                            ],
+                            "payloadSizeBytes": 189,
+                            "messages": []
+                        },
+                        "qualifier": "Pass",
+                        "termType": "Include",
+                        "value": "include:_spf.createsend.com",
+                        "valid": true,
+                        "explanation": null
+                    }, {
+                        "domain": "havaspeople.com",
+                        "records": {
+                            "records": [{
+                                    "recordsStrings": [
+                                        "v=spf1 include:spf.havas.com ip4:134.213.117.152 ip4:134.213.117.153 ip4:134.213.154.199 ip4:162.13.81.136  ip4:35.242.151.254 ip4:162.13.142.202 -all"
+                                    ],
+                                    "version": {
+                                        "value": "v=spf1",
+                                        "valid": true,
+                                        "explanation": null
+                                    },
+                                    "isRoot": false,
+                                    "terms": [{
+                                            "domain": "spf.havas.com",
+                                            "records": {
+                                                "records": [{
+                                                        "recordsStrings": [
+                                                            "v=spf1 include:spf-00276502.pphosted.com include:spf.protection.outlook.com include:o365.crossware.co.nz a:a.ha184.com -all"
+                                                        ],
+                                                        "version": {
+                                                            "value": "v=spf1",
+                                                            "valid": true,
+                                                            "explanation": null
+                                                        },
+                                                        "isRoot": false,
+                                                        "terms": [{
+                                                                "domain": "spf-00276502.pphosted.com",
+                                                                "records": {
+                                                                    "records": [{
+                                                                            "recordsStrings": [
+                                                                                "v=spf1 ip4:185.132.180.37 ip4:91.207.212.230"
+                                                                            ],
+                                                                            "version": {
+                                                                                "value": "v=spf1",
+                                                                                "valid": true,
+                                                                                "explanation": null
+                                                                            },
+                                                                            "isRoot": false,
+                                                                            "terms": [{
+                                                                                    "ip": "185.132.180.37",
+                                                                                    "ip4Cidr": 32,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:185.132.180.37",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "ip": "91.207.212.230",
+                                                                                    "ip4Cidr": 32,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:91.207.212.230",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "implicit": true,
+                                                                                    "qualifier": "Neutral",
+                                                                                    "termType": "All",
+                                                                                    "value": "?all",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }
+                                                                            ],
+                                                                            "messages": []
+                                                                        }
+                                                                    ],
+                                                                    "payloadSizeBytes": 111,
+                                                                    "messages": []
+                                                                },
+                                                                "qualifier": "Pass",
+                                                                "termType": "Include",
+                                                                "value": "include:spf-00276502.pphosted.com",
+                                                                "valid": true,
+                                                                "explanation": null
+                                                            }, {
+                                                                "domain": "spf.protection.outlook.com",
+                                                                "records": {
+                                                                    "records": [{
+                                                                            "recordsStrings": [
+                                                                                "v=spf1 ip4:40.92.0.0/15 ip4:40.107.0.0/16 ip4:52.100.0.0/14 ip4:104.47.0.0/17 ip6:2a01:111:f400::/48 ip6:2a01:111:f403::/48 include:spfd.protection.outlook.com -all"
+                                                                            ],
+                                                                            "version": {
+                                                                                "value": "v=spf1",
+                                                                                "valid": true,
+                                                                                "explanation": null
+                                                                            },
+                                                                            "isRoot": false,
+                                                                            "terms": [{
+                                                                                    "ip": "40.92.0.0",
+                                                                                    "ip4Cidr": 15,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:40.92.0.0/15",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "ip": "40.107.0.0",
+                                                                                    "ip4Cidr": 16,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:40.107.0.0/16",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "ip": "52.100.0.0",
+                                                                                    "ip4Cidr": 14,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:52.100.0.0/14",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "ip": "104.47.0.0",
+                                                                                    "ip4Cidr": 17,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:104.47.0.0/17",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "ip": "2a01:111:f400::",
+                                                                                    "ip6Cidr": 48,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip6",
+                                                                                    "value": "ip6:2a01:111:f400::/48",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "ip": "2a01:111:f403::",
+                                                                                    "ip6Cidr": 48,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip6",
+                                                                                    "value": "ip6:2a01:111:f403::/48",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "domain": "spfd.protection.outlook.com",
+                                                                                    "records": null,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Include",
+                                                                                    "value": "include:spfd.protection.outlook.com",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "implicit": false,
+                                                                                    "qualifier": "Fail",
+                                                                                    "termType": "All",
+                                                                                    "value": "-all",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }
+                                                                            ],
+                                                                            "messages": []
+                                                                        }
+                                                                    ],
+                                                                    "payloadSizeBytes": 232,
+                                                                    "messages": []
+                                                                },
+                                                                "qualifier": "Pass",
+                                                                "termType": "Include",
+                                                                "value": "include:spf.protection.outlook.com",
+                                                                "valid": true,
+                                                                "explanation": null
+                                                            }, {
+                                                                "domain": "o365.crossware.co.nz",
+                                                                "records": {
+                                                                    "records": [{
+                                                                            "recordsStrings": [
+                                                                                "v=spf1  ip4:104.210.116.177 ip4:104.41.148.118 ip4:104.40.179.195 ip4:23.101.3.54 ip4:104.45.140.251  -all"
+                                                                            ],
+                                                                            "version": {
+                                                                                "value": "v=spf1",
+                                                                                "valid": true,
+                                                                                "explanation": null
+                                                                            },
+                                                                            "isRoot": false,
+                                                                            "terms": [{
+                                                                                    "ip": "104.210.116.177",
+                                                                                    "ip4Cidr": 32,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:104.210.116.177",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "ip": "104.41.148.118",
+                                                                                    "ip4Cidr": 32,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:104.41.148.118",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "ip": "104.40.179.195",
+                                                                                    "ip4Cidr": 32,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:104.40.179.195",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "ip": "23.101.3.54",
+                                                                                    "ip4Cidr": 32,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:23.101.3.54",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "ip": "104.45.140.251",
+                                                                                    "ip4Cidr": 32,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:104.45.140.251",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "implicit": false,
+                                                                                    "qualifier": "Fail",
+                                                                                    "termType": "All",
+                                                                                    "value": "-all",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }
+                                                                            ],
+                                                                            "messages": []
+                                                                        }
+                                                                    ],
+                                                                    "payloadSizeBytes": 168,
+                                                                    "messages": []
+                                                                },
+                                                                "qualifier": "Pass",
+                                                                "termType": "Include",
+                                                                "value": "include:o365.crossware.co.nz",
+                                                                "valid": true,
+                                                                "explanation": null
+                                                            }, {
+                                                                "domain": "a.ha184.com",
+                                                                "ip4Cidr": 32,
+                                                                "ip6Cidr": 128,
+                                                                "ips": [
+                                                                    "217.73.9.216",
+                                                                    "46.193.227.112",
+                                                                    "213.215.202.235",
+                                                                    "109.7.89.6",
+                                                                    "193.173.40.133",
+                                                                    "194.206.224.158",
+                                                                    "92.42.148.197",
+                                                                    "194.206.224.170",
+                                                                    "173.251.126.3",
+                                                                    "38.121.145.15",
+                                                                    "193.173.40.141",
+                                                                    "193.30.111.63",
+                                                                    "217.73.9.217",
+                                                                    "109.7.89.5",
+                                                                    "91.151.77.5",
+                                                                    "193.30.111.78",
+                                                                    "217.73.9.211",
+                                                                    "208.184.43.19",
+                                                                    "46.193.227.111",
+                                                                    "38.87.43.44",
+                                                                    "217.73.9.214",
+                                                                    "188.65.183.42",
+                                                                    "217.73.9.213",
+                                                                    "193.30.111.81",
+                                                                    "46.193.227.228",
+                                                                    "38.87.43.22",
+                                                                    "195.101.158.127",
+                                                                    "217.73.9.215",
+                                                                    "217.73.9.212",
+                                                                    "38.87.43.25"
+                                                                ],
+                                                                "qualifier": "Pass",
+                                                                "termType": "A",
+                                                                "value": "a:a.ha184.com",
+                                                                "valid": true,
+                                                                "explanation": null
+                                                            }, {
+                                                                "implicit": false,
+                                                                "qualifier": "Fail",
+                                                                "termType": "All",
+                                                                "value": "-all",
+                                                                "valid": true,
+                                                                "explanation": null
+                                                            }
+                                                        ],
+                                                        "messages": []
+                                                    }
+                                                ],
+                                                "payloadSizeBytes": 178,
+                                                "messages": []
+                                            },
+                                            "qualifier": "Pass",
+                                            "termType": "Include",
+                                            "value": "include:spf.havas.com",
+                                            "valid": true,
+                                            "explanation": null
+                                        }, {
+                                            "ip": "134.213.117.152",
+                                            "ip4Cidr": 32,
+                                            "qualifier": "Pass",
+                                            "termType": "Ip4",
+                                            "value": "ip4:134.213.117.152",
+                                            "valid": true,
+                                            "explanation": null
+                                        }, {
+                                            "ip": "134.213.117.153",
+                                            "ip4Cidr": 32,
+                                            "qualifier": "Pass",
+                                            "termType": "Ip4",
+                                            "value": "ip4:134.213.117.153",
+                                            "valid": true,
+                                            "explanation": null
+                                        }, {
+                                            "ip": "134.213.154.199",
+                                            "ip4Cidr": 32,
+                                            "qualifier": "Pass",
+                                            "termType": "Ip4",
+                                            "value": "ip4:134.213.154.199",
+                                            "valid": true,
+                                            "explanation": null
+                                        }, {
+                                            "ip": "162.13.81.136",
+                                            "ip4Cidr": 32,
+                                            "qualifier": "Pass",
+                                            "termType": "Ip4",
+                                            "value": "ip4:162.13.81.136",
+                                            "valid": true,
+                                            "explanation": null
+                                        }, {
+                                            "ip": "35.242.151.254",
+                                            "ip4Cidr": 32,
+                                            "qualifier": "Pass",
+                                            "termType": "Ip4",
+                                            "value": "ip4:35.242.151.254",
+                                            "valid": true,
+                                            "explanation": null
+                                        }, {
+                                            "ip": "162.13.142.202",
+                                            "ip4Cidr": 32,
+                                            "qualifier": "Pass",
+                                            "termType": "Ip4",
+                                            "value": "ip4:162.13.142.202",
+                                            "valid": true,
+                                            "explanation": null
+                                        }, {
+                                            "implicit": false,
+                                            "qualifier": "Fail",
+                                            "termType": "All",
+                                            "value": "-all",
+                                            "valid": true,
+                                            "explanation": null
+                                        }
+                                    ],
+                                    "messages": []
+                                }
+                            ],
+                            "payloadSizeBytes": 310,
+                            "messages": []
+                        },
+                        "qualifier": "Pass",
+                        "termType": "Include",
+                        "value": "include:havaspeople.com",
+                        "valid": true,
+                        "explanation": null
+                    }, {
+                        "domain": "oxfordabstracts.com",
+                        "records": {
+                            "records": [{
+                                    "recordsStrings": [
+                                        "v=spf1 ip4:5.10.31.74/32 ip4:64.106.241.127 include:spf.protection.outlook.com include:email.freshdesk.com include:_spf.freshsales.io ~all"
+                                    ],
+                                    "version": {
+                                        "value": "v=spf1",
+                                        "valid": true,
+                                        "explanation": null
+                                    },
+                                    "isRoot": false,
+                                    "terms": [{
+                                            "ip": "5.10.31.74",
+                                            "ip4Cidr": 32,
+                                            "qualifier": "Pass",
+                                            "termType": "Ip4",
+                                            "value": "ip4:5.10.31.74/32",
+                                            "valid": true,
+                                            "explanation": null
+                                        }, {
+                                            "ip": "64.106.241.127",
+                                            "ip4Cidr": 32,
+                                            "qualifier": "Pass",
+                                            "termType": "Ip4",
+                                            "value": "ip4:64.106.241.127",
+                                            "valid": true,
+                                            "explanation": null
+                                        }, {
+                                            "domain": "spf.protection.outlook.com",
+                                            "records": {
+                                                "records": [{
+                                                        "recordsStrings": [
+                                                            "v=spf1 ip4:40.92.0.0/15 ip4:40.107.0.0/16 ip4:52.100.0.0/14 ip4:104.47.0.0/17 ip6:2a01:111:f400::/48 ip6:2a01:111:f403::/48 include:spfd.protection.outlook.com -all"
+                                                        ],
+                                                        "version": {
+                                                            "value": "v=spf1",
+                                                            "valid": true,
+                                                            "explanation": null
+                                                        },
+                                                        "isRoot": false,
+                                                        "terms": [{
+                                                                "ip": "40.92.0.0",
+                                                                "ip4Cidr": 15,
+                                                                "qualifier": "Pass",
+                                                                "termType": "Ip4",
+                                                                "value": "ip4:40.92.0.0/15",
+                                                                "valid": true,
+                                                                "explanation": null
+                                                            }, {
+                                                                "ip": "40.107.0.0",
+                                                                "ip4Cidr": 16,
+                                                                "qualifier": "Pass",
+                                                                "termType": "Ip4",
+                                                                "value": "ip4:40.107.0.0/16",
+                                                                "valid": true,
+                                                                "explanation": null
+                                                            }, {
+                                                                "ip": "52.100.0.0",
+                                                                "ip4Cidr": 14,
+                                                                "qualifier": "Pass",
+                                                                "termType": "Ip4",
+                                                                "value": "ip4:52.100.0.0/14",
+                                                                "valid": true,
+                                                                "explanation": null
+                                                            }, {
+                                                                "ip": "104.47.0.0",
+                                                                "ip4Cidr": 17,
+                                                                "qualifier": "Pass",
+                                                                "termType": "Ip4",
+                                                                "value": "ip4:104.47.0.0/17",
+                                                                "valid": true,
+                                                                "explanation": null
+                                                            }, {
+                                                                "ip": "2a01:111:f400::",
+                                                                "ip6Cidr": 48,
+                                                                "qualifier": "Pass",
+                                                                "termType": "Ip6",
+                                                                "value": "ip6:2a01:111:f400::/48",
+                                                                "valid": true,
+                                                                "explanation": null
+                                                            }, {
+                                                                "ip": "2a01:111:f403::",
+                                                                "ip6Cidr": 48,
+                                                                "qualifier": "Pass",
+                                                                "termType": "Ip6",
+                                                                "value": "ip6:2a01:111:f403::/48",
+                                                                "valid": true,
+                                                                "explanation": null
+                                                            }, {
+                                                                "domain": "spfd.protection.outlook.com",
+                                                                "records": {
+                                                                    "records": [{
+                                                                            "recordsStrings": [
+                                                                                "v=spf1 ip4:51.4.72.0/24 ip4:51.5.72.0/24 ip4:51.5.80.0/27 ip4:51.4.80.0/27 ip6:2a01:4180:4051:0800::/64 ip6:2a01:4180:4050:0800::/64 ip6:2a01:4180:4051:0400::/64 ip6:2a01:4180:4050:0400::/64 -all"
+                                                                            ],
+                                                                            "version": {
+                                                                                "value": "v=spf1",
+                                                                                "valid": true,
+                                                                                "explanation": null
+                                                                            },
+                                                                            "isRoot": false,
+                                                                            "terms": [{
+                                                                                    "ip": "51.4.72.0",
+                                                                                    "ip4Cidr": 24,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:51.4.72.0/24",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "ip": "51.5.72.0",
+                                                                                    "ip4Cidr": 24,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:51.5.72.0/24",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "ip": "51.5.80.0",
+                                                                                    "ip4Cidr": 27,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:51.5.80.0/27",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "ip": "51.4.80.0",
+                                                                                    "ip4Cidr": 27,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:51.4.80.0/27",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "ip": "2a01:4180:4051:0800::",
+                                                                                    "ip6Cidr": 64,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip6",
+                                                                                    "value": "ip6:2a01:4180:4051:0800::/64",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "ip": "2a01:4180:4050:0800::",
+                                                                                    "ip6Cidr": 64,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip6",
+                                                                                    "value": "ip6:2a01:4180:4050:0800::/64",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "ip": "2a01:4180:4051:0400::",
+                                                                                    "ip6Cidr": 64,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip6",
+                                                                                    "value": "ip6:2a01:4180:4051:0400::/64",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "ip": "2a01:4180:4050:0400::",
+                                                                                    "ip6Cidr": 64,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip6",
+                                                                                    "value": "ip6:2a01:4180:4050:0400::/64",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "implicit": false,
+                                                                                    "qualifier": "Fail",
+                                                                                    "termType": "All",
+                                                                                    "value": "-all",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }
+                                                                            ],
+                                                                            "messages": []
+                                                                        }
+                                                                    ],
+                                                                    "payloadSizeBytes": 264,
+                                                                    "messages": []
+                                                                },
+                                                                "qualifier": "Pass",
+                                                                "termType": "Include",
+                                                                "value": "include:spfd.protection.outlook.com",
+                                                                "valid": true,
+                                                                "explanation": null
+                                                            }, {
+                                                                "implicit": false,
+                                                                "qualifier": "Fail",
+                                                                "termType": "All",
+                                                                "value": "-all",
+                                                                "valid": true,
+                                                                "explanation": null
+                                                            }
+                                                        ],
+                                                        "messages": []
+                                                    }
+                                                ],
+                                                "payloadSizeBytes": 232,
+                                                "messages": []
+                                            },
+                                            "qualifier": "Pass",
+                                            "termType": "Include",
+                                            "value": "include:spf.protection.outlook.com",
+                                            "valid": true,
+                                            "explanation": null
+                                        }, {
+                                            "domain": "email.freshdesk.com",
+                                            "records": {
+                                                "records": [{
+                                                        "recordsStrings": [
+                                                            "v=spf1 include:sendgrid.net include:fdspfus.freshemail.io include:fdspfeuc.freshemail.io include:fdspfind.freshemail.io include:fdspfaus.freshemail.io ~all"
+                                                        ],
+                                                        "version": {
+                                                            "value": "v=spf1",
+                                                            "valid": true,
+                                                            "explanation": null
+                                                        },
+                                                        "isRoot": false,
+                                                        "terms": [{
+                                                                "domain": "sendgrid.net",
+                                                                "records": {
+                                                                    "records": [{
+                                                                            "recordsStrings": [
+                                                                                "v=spf1 ip4:167.89.0.0/17 ip4:208.117.48.0/20 ip4:50.31.32.0/19 ip4:198.37.144.0/20 ip4:198.21.0.0/21 ip4:192.254.112.0/20 ip4:168.245.0.0/17 ip4:149.72.0.0/16 ~all"
+                                                                            ],
+                                                                            "version": {
+                                                                                "value": "v=spf1",
+                                                                                "valid": true,
+                                                                                "explanation": null
+                                                                            },
+                                                                            "isRoot": false,
+                                                                            "terms": [{
+                                                                                    "ip": "167.89.0.0",
+                                                                                    "ip4Cidr": 17,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:167.89.0.0/17",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "ip": "208.117.48.0",
+                                                                                    "ip4Cidr": 20,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:208.117.48.0/20",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "ip": "50.31.32.0",
+                                                                                    "ip4Cidr": 19,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:50.31.32.0/19",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "ip": "198.37.144.0",
+                                                                                    "ip4Cidr": 20,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:198.37.144.0/20",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "ip": "198.21.0.0",
+                                                                                    "ip4Cidr": 21,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:198.21.0.0/21",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "ip": "192.254.112.0",
+                                                                                    "ip4Cidr": 20,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:192.254.112.0/20",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "ip": "168.245.0.0",
+                                                                                    "ip4Cidr": 17,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:168.245.0.0/17",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "ip": "149.72.0.0",
+                                                                                    "ip4Cidr": 16,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:149.72.0.0/16",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "implicit": false,
+                                                                                    "qualifier": "SoftFail",
+                                                                                    "termType": "All",
+                                                                                    "value": "~all",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }
+                                                                            ],
+                                                                            "messages": []
+                                                                        }
+                                                                    ],
+                                                                    "payloadSizeBytes": 348,
+                                                                    "messages": []
+                                                                },
+                                                                "qualifier": "Pass",
+                                                                "termType": "Include",
+                                                                "value": "include:sendgrid.net",
+                                                                "valid": true,
+                                                                "explanation": null
+                                                            }, {
+                                                                "domain": "fdspfus.freshemail.io",
+                                                                "records": {
+                                                                    "records": [{
+                                                                            "recordsStrings": [
+                                                                                "v=spf1 ip4:34.198.193.174 ip4:34.202.174.188 ip4:34.199.167.230 ip4:52.203.5.138 ip4:3.91.171.64/28 ip4:3.219.176.96/29 ip4:3.222.0.112/29 ip4:3.222.0.24/29 ip4:3.222.0.88/29 ip4:3.235.255.160/29 ip4:18.235.53.110 ip4:54.159.173.91 ~all"
+                                                                            ],
+                                                                            "version": {
+                                                                                "value": "v=spf1",
+                                                                                "valid": true,
+                                                                                "explanation": null
+                                                                            },
+                                                                            "isRoot": false,
+                                                                            "terms": [{
+                                                                                    "ip": "34.198.193.174",
+                                                                                    "ip4Cidr": 32,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:34.198.193.174",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "ip": "34.202.174.188",
+                                                                                    "ip4Cidr": 32,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:34.202.174.188",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "ip": "34.199.167.230",
+                                                                                    "ip4Cidr": 32,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:34.199.167.230",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "ip": "52.203.5.138",
+                                                                                    "ip4Cidr": 32,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:52.203.5.138",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "ip": "3.91.171.64",
+                                                                                    "ip4Cidr": 28,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:3.91.171.64/28",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "ip": "3.219.176.96",
+                                                                                    "ip4Cidr": 29,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:3.219.176.96/29",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "ip": "3.222.0.112",
+                                                                                    "ip4Cidr": 29,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:3.222.0.112/29",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "ip": "3.222.0.24",
+                                                                                    "ip4Cidr": 29,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:3.222.0.24/29",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "ip": "3.222.0.88",
+                                                                                    "ip4Cidr": 29,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:3.222.0.88/29",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "ip": "3.235.255.160",
+                                                                                    "ip4Cidr": 29,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:3.235.255.160/29",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "ip": "18.235.53.110",
+                                                                                    "ip4Cidr": 32,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:18.235.53.110",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "ip": "54.159.173.91",
+                                                                                    "ip4Cidr": 32,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:54.159.173.91",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "implicit": false,
+                                                                                    "qualifier": "SoftFail",
+                                                                                    "termType": "All",
+                                                                                    "value": "~all",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }
+                                                                            ],
+                                                                            "messages": []
+                                                                        }
+                                                                    ],
+                                                                    "payloadSizeBytes": 299,
+                                                                    "messages": []
+                                                                },
+                                                                "qualifier": "Pass",
+                                                                "termType": "Include",
+                                                                "value": "include:fdspfus.freshemail.io",
+                                                                "valid": true,
+                                                                "explanation": null
+                                                            }, {
+                                                                "domain": "fdspfeuc.freshemail.io",
+                                                                "records": {
+                                                                    "records": [{
+                                                                            "recordsStrings": [
+                                                                                "v=spf1 ip4:35.158.71.15 ip4:35.158.67.243 ip4:3.120.181.192/28 ip4:18.192.72.40/30 ~all"
+                                                                            ],
+                                                                            "version": {
+                                                                                "value": "v=spf1",
+                                                                                "valid": true,
+                                                                                "explanation": null
+                                                                            },
+                                                                            "isRoot": false,
+                                                                            "terms": [{
+                                                                                    "ip": "35.158.71.15",
+                                                                                    "ip4Cidr": 32,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:35.158.71.15",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "ip": "35.158.67.243",
+                                                                                    "ip4Cidr": 32,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:35.158.67.243",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "ip": "3.120.181.192",
+                                                                                    "ip4Cidr": 28,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:3.120.181.192/28",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "ip": "18.192.72.40",
+                                                                                    "ip4Cidr": 30,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:18.192.72.40/30",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "implicit": false,
+                                                                                    "qualifier": "SoftFail",
+                                                                                    "termType": "All",
+                                                                                    "value": "~all",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }
+                                                                            ],
+                                                                            "messages": []
+                                                                        }
+                                                                    ],
+                                                                    "payloadSizeBytes": 151,
+                                                                    "messages": []
+                                                                },
+                                                                "qualifier": "Pass",
+                                                                "termType": "Include",
+                                                                "value": "include:fdspfeuc.freshemail.io",
+                                                                "valid": true,
+                                                                "explanation": null
+                                                            }, {
+                                                                "domain": "fdspfind.freshemail.io",
+                                                                "records": {
+                                                                    "records": [{
+                                                                            "recordsStrings": [
+                                                                                "v=spf1 ip4:13.127.153.86 ip4:52.66.154.99 ip4:13.127.210.61 ip4:3.7.25.40/29 ~all"
+                                                                            ],
+                                                                            "version": {
+                                                                                "value": "v=spf1",
+                                                                                "valid": true,
+                                                                                "explanation": null
+                                                                            },
+                                                                            "isRoot": false,
+                                                                            "terms": [{
+                                                                                    "ip": "13.127.153.86",
+                                                                                    "ip4Cidr": 32,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:13.127.153.86",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "ip": "52.66.154.99",
+                                                                                    "ip4Cidr": 32,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:52.66.154.99",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "ip": "13.127.210.61",
+                                                                                    "ip4Cidr": 32,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:13.127.210.61",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "ip": "3.7.25.40",
+                                                                                    "ip4Cidr": 29,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:3.7.25.40/29",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "implicit": false,
+                                                                                    "qualifier": "SoftFail",
+                                                                                    "termType": "All",
+                                                                                    "value": "~all",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }
+                                                                            ],
+                                                                            "messages": []
+                                                                        }
+                                                                    ],
+                                                                    "payloadSizeBytes": 145,
+                                                                    "messages": []
+                                                                },
+                                                                "qualifier": "Pass",
+                                                                "termType": "Include",
+                                                                "value": "include:fdspfind.freshemail.io",
+                                                                "valid": true,
+                                                                "explanation": null
+                                                            }, {
+                                                                "domain": "fdspfaus.freshemail.io",
+                                                                "records": {
+                                                                    "records": [{
+                                                                            "recordsStrings": [
+                                                                                "v=spf1 ip4:3.25.47.0/29 ip4:52.62.151.40 ip4:13.237.4.248 ip4:13.211.56.237 ~all"
+                                                                            ],
+                                                                            "version": {
+                                                                                "value": "v=spf1",
+                                                                                "valid": true,
+                                                                                "explanation": null
+                                                                            },
+                                                                            "isRoot": false,
+                                                                            "terms": [{
+                                                                                    "ip": "3.25.47.0",
+                                                                                    "ip4Cidr": 29,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:3.25.47.0/29",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "ip": "52.62.151.40",
+                                                                                    "ip4Cidr": 32,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:52.62.151.40",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "ip": "13.237.4.248",
+                                                                                    "ip4Cidr": 32,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:13.237.4.248",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "ip": "13.211.56.237",
+                                                                                    "ip4Cidr": 32,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:13.211.56.237",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "implicit": false,
+                                                                                    "qualifier": "SoftFail",
+                                                                                    "termType": "All",
+                                                                                    "value": "~all",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }
+                                                                            ],
+                                                                            "messages": []
+                                                                        }
+                                                                    ],
+                                                                    "payloadSizeBytes": 144,
+                                                                    "messages": []
+                                                                },
+                                                                "qualifier": "Pass",
+                                                                "termType": "Include",
+                                                                "value": "include:fdspfaus.freshemail.io",
+                                                                "valid": true,
+                                                                "explanation": null
+                                                            }, {
+                                                                "implicit": false,
+                                                                "qualifier": "SoftFail",
+                                                                "termType": "All",
+                                                                "value": "~all",
+                                                                "valid": true,
+                                                                "explanation": null
+                                                            }
+                                                        ],
+                                                        "messages": []
+                                                    }
+                                                ],
+                                                "payloadSizeBytes": 216,
+                                                "messages": []
+                                            },
+                                            "qualifier": "Pass",
+                                            "termType": "Include",
+                                            "value": "include:email.freshdesk.com",
+                                            "valid": true,
+                                            "explanation": null
+                                        }, {
+                                            "domain": "_spf.freshsales.io",
+                                            "records": {
+                                                "records": [{
+                                                        "recordsStrings": [
+                                                            "v=spf1 include:sendgrid.net ~all"
+                                                        ],
+                                                        "version": {
+                                                            "value": "v=spf1",
+                                                            "valid": true,
+                                                            "explanation": null
+                                                        },
+                                                        "isRoot": false,
+                                                        "terms": [{
+                                                                "domain": "sendgrid.net",
+                                                                "records": {
+                                                                    "records": [{
+                                                                            "recordsStrings": [
+                                                                                "v=spf1 ip4:167.89.0.0/17 ip4:208.117.48.0/20 ip4:50.31.32.0/19 ip4:198.37.144.0/20 ip4:198.21.0.0/21 ip4:192.254.112.0/20 ip4:168.245.0.0/17 ip4:149.72.0.0/16 ~all"
+                                                                            ],
+                                                                            "version": {
+                                                                                "value": "v=spf1",
+                                                                                "valid": true,
+                                                                                "explanation": null
+                                                                            },
+                                                                            "isRoot": false,
+                                                                            "terms": [{
+                                                                                    "ip": "167.89.0.0",
+                                                                                    "ip4Cidr": 17,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:167.89.0.0/17",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "ip": "208.117.48.0",
+                                                                                    "ip4Cidr": 20,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:208.117.48.0/20",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "ip": "50.31.32.0",
+                                                                                    "ip4Cidr": 19,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:50.31.32.0/19",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "ip": "198.37.144.0",
+                                                                                    "ip4Cidr": 20,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:198.37.144.0/20",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "ip": "198.21.0.0",
+                                                                                    "ip4Cidr": 21,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:198.21.0.0/21",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "ip": "192.254.112.0",
+                                                                                    "ip4Cidr": 20,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:192.254.112.0/20",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "ip": "168.245.0.0",
+                                                                                    "ip4Cidr": 17,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:168.245.0.0/17",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "ip": "149.72.0.0",
+                                                                                    "ip4Cidr": 16,
+                                                                                    "qualifier": "Pass",
+                                                                                    "termType": "Ip4",
+                                                                                    "value": "ip4:149.72.0.0/16",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }, {
+                                                                                    "implicit": false,
+                                                                                    "qualifier": "SoftFail",
+                                                                                    "termType": "All",
+                                                                                    "value": "~all",
+                                                                                    "valid": true,
+                                                                                    "explanation": null
+                                                                                }
+                                                                            ],
+                                                                            "messages": []
+                                                                        }
+                                                                    ],
+                                                                    "payloadSizeBytes": 348,
+                                                                    "messages": []
+                                                                },
+                                                                "qualifier": "Pass",
+                                                                "termType": "Include",
+                                                                "value": "include:sendgrid.net",
+                                                                "valid": true,
+                                                                "explanation": null
+                                                            }, {
+                                                                "implicit": false,
+                                                                "qualifier": "SoftFail",
+                                                                "termType": "All",
+                                                                "value": "~all",
+                                                                "valid": true,
+                                                                "explanation": null
+                                                            }
+                                                        ],
+                                                        "messages": []
+                                                    }
+                                                ],
+                                                "payloadSizeBytes": 92,
+                                                "messages": []
+                                            },
+                                            "qualifier": "Pass",
+                                            "termType": "Include",
+                                            "value": "include:_spf.freshsales.io",
+                                            "valid": true,
+                                            "explanation": null
+                                        }, {
+                                            "implicit": false,
+                                            "qualifier": "SoftFail",
+                                            "termType": "All",
+                                            "value": "~all",
+                                            "valid": true,
+                                            "explanation": null
+                                        }
+                                    ],
+                                    "messages": []
+                                }
+                            ],
+                            "payloadSizeBytes": 361,
+                            "messages": []
+                        },
+                        "qualifier": "Pass",
+                        "termType": "Include",
+                        "value": "include:oxfordabstracts.com",
+                        "valid": true,
+                        "explanation": null
+                    }, {
+                        "domain": "mh.blackboard.com",
+                        "records": {
+                            "records": [{
+                                    "recordsStrings": [
+                                        "v=spf1 ip4:192.230.230.0/25 ip4:69.196.241.0/28 ip4:69.196.242.128/28 ip4:46.183.242.192/28 ip4:202.38.144.192/28 ip4:69.196.236.208/28 ip4:103.225.232.128/28 ip4:37.216.222.128/28 ip4:64.125.200.96/28 -all"
+                                    ],
+                                    "version": {
+                                        "value": "v=spf1",
+                                        "valid": true,
+                                        "explanation": null
+                                    },
+                                    "isRoot": false,
+                                    "terms": [{
+                                            "ip": "192.230.230.0",
+                                            "ip4Cidr": 25,
+                                            "qualifier": "Pass",
+                                            "termType": "Ip4",
+                                            "value": "ip4:192.230.230.0/25",
+                                            "valid": true,
+                                            "explanation": null
+                                        }, {
+                                            "ip": "69.196.241.0",
+                                            "ip4Cidr": 28,
+                                            "qualifier": "Pass",
+                                            "termType": "Ip4",
+                                            "value": "ip4:69.196.241.0/28",
+                                            "valid": true,
+                                            "explanation": null
+                                        }, {
+                                            "ip": "69.196.242.128",
+                                            "ip4Cidr": 28,
+                                            "qualifier": "Pass",
+                                            "termType": "Ip4",
+                                            "value": "ip4:69.196.242.128/28",
+                                            "valid": true,
+                                            "explanation": null
+                                        }, {
+                                            "ip": "46.183.242.192",
+                                            "ip4Cidr": 28,
+                                            "qualifier": "Pass",
+                                            "termType": "Ip4",
+                                            "value": "ip4:46.183.242.192/28",
+                                            "valid": true,
+                                            "explanation": null
+                                        }, {
+                                            "ip": "202.38.144.192",
+                                            "ip4Cidr": 28,
+                                            "qualifier": "Pass",
+                                            "termType": "Ip4",
+                                            "value": "ip4:202.38.144.192/28",
+                                            "valid": true,
+                                            "explanation": null
+                                        }, {
+                                            "ip": "69.196.236.208",
+                                            "ip4Cidr": 28,
+                                            "qualifier": "Pass",
+                                            "termType": "Ip4",
+                                            "value": "ip4:69.196.236.208/28",
+                                            "valid": true,
+                                            "explanation": null
+                                        }, {
+                                            "ip": "103.225.232.128",
+                                            "ip4Cidr": 28,
+                                            "qualifier": "Pass",
+                                            "termType": "Ip4",
+                                            "value": "ip4:103.225.232.128/28",
+                                            "valid": true,
+                                            "explanation": null
+                                        }, {
+                                            "ip": "37.216.222.128",
+                                            "ip4Cidr": 28,
+                                            "qualifier": "Pass",
+                                            "termType": "Ip4",
+                                            "value": "ip4:37.216.222.128/28",
+                                            "valid": true,
+                                            "explanation": null
+                                        }, {
+                                            "ip": "64.125.200.96",
+                                            "ip4Cidr": 28,
+                                            "qualifier": "Pass",
+                                            "termType": "Ip4",
+                                            "value": "ip4:64.125.200.96/28",
+                                            "valid": true,
+                                            "explanation": null
+                                        }, {
+                                            "implicit": false,
+                                            "qualifier": "Fail",
+                                            "termType": "All",
+                                            "value": "-all",
+                                            "valid": true,
+                                            "explanation": null
+                                        }
+                                    ],
+                                    "messages": []
+                                }
+                            ],
+                            "payloadSizeBytes": 265,
+                            "messages": []
+                        },
+                        "qualifier": "Pass",
+                        "termType": "Include",
+                        "value": "include:mh.blackboard.com",
+                        "valid": true,
+                        "explanation": null
+                    }, {
+                        "domain": "cust-spf.exacttarget.com",
+                        "records": {
+                            "records": [{
+                                    "recordsStrings": [
+                                        "v=spf1 ip4:64.132.92.0/24 ip4:64.132.88.0/23 ip4:66.231.80.0/20 ip4:68.232.192.0/20 ip4:199.122.120.0/21 ip4:207.67.38.0/24 ",
+                                        "ip4:207.67.98.192/27 ip4:207.250.68.0/24 ip4:209.43.22.0/28 ip4:198.245.80.0/20 ip4:136.147.128.0/20 ip4:136.147.176.0/20 ip4:13.111.0.0/16 ip4:161.71.32.0/17 -all"
+                                    ],
+                                    "version": {
+                                        "value": "v=spf1",
+                                        "valid": true,
+                                        "explanation": null
+                                    },
+                                    "isRoot": false,
+                                    "terms": [{
+                                            "ip": "64.132.92.0",
+                                            "ip4Cidr": 24,
+                                            "qualifier": "Pass",
+                                            "termType": "Ip4",
+                                            "value": "ip4:64.132.92.0/24",
+                                            "valid": true,
+                                            "explanation": null
+                                        }, {
+                                            "ip": "64.132.88.0",
+                                            "ip4Cidr": 23,
+                                            "qualifier": "Pass",
+                                            "termType": "Ip4",
+                                            "value": "ip4:64.132.88.0/23",
+                                            "valid": true,
+                                            "explanation": null
+                                        }, {
+                                            "ip": "66.231.80.0",
+                                            "ip4Cidr": 20,
+                                            "qualifier": "Pass",
+                                            "termType": "Ip4",
+                                            "value": "ip4:66.231.80.0/20",
+                                            "valid": true,
+                                            "explanation": null
+                                        }, {
+                                            "ip": "68.232.192.0",
+                                            "ip4Cidr": 20,
+                                            "qualifier": "Pass",
+                                            "termType": "Ip4",
+                                            "value": "ip4:68.232.192.0/20",
+                                            "valid": true,
+                                            "explanation": null
+                                        }, {
+                                            "ip": "199.122.120.0",
+                                            "ip4Cidr": 21,
+                                            "qualifier": "Pass",
+                                            "termType": "Ip4",
+                                            "value": "ip4:199.122.120.0/21",
+                                            "valid": true,
+                                            "explanation": null
+                                        }, {
+                                            "ip": "207.67.38.0",
+                                            "ip4Cidr": 24,
+                                            "qualifier": "Pass",
+                                            "termType": "Ip4",
+                                            "value": "ip4:207.67.38.0/24",
+                                            "valid": true,
+                                            "explanation": null
+                                        }, {
+                                            "ip": "207.67.98.192",
+                                            "ip4Cidr": 27,
+                                            "qualifier": "Pass",
+                                            "termType": "Ip4",
+                                            "value": "ip4:207.67.98.192/27",
+                                            "valid": true,
+                                            "explanation": null
+                                        }, {
+                                            "ip": "207.250.68.0",
+                                            "ip4Cidr": 24,
+                                            "qualifier": "Pass",
+                                            "termType": "Ip4",
+                                            "value": "ip4:207.250.68.0/24",
+                                            "valid": true,
+                                            "explanation": null
+                                        }, {
+                                            "ip": "209.43.22.0",
+                                            "ip4Cidr": 28,
+                                            "qualifier": "Pass",
+                                            "termType": "Ip4",
+                                            "value": "ip4:209.43.22.0/28",
+                                            "valid": true,
+                                            "explanation": null
+                                        }, {
+                                            "ip": "198.245.80.0",
+                                            "ip4Cidr": 20,
+                                            "qualifier": "Pass",
+                                            "termType": "Ip4",
+                                            "value": "ip4:198.245.80.0/20",
+                                            "valid": true,
+                                            "explanation": null
+                                        }, {
+                                            "ip": "136.147.128.0",
+                                            "ip4Cidr": 20,
+                                            "qualifier": "Pass",
+                                            "termType": "Ip4",
+                                            "value": "ip4:136.147.128.0/20",
+                                            "valid": true,
+                                            "explanation": null
+                                        }, {
+                                            "ip": "136.147.176.0",
+                                            "ip4Cidr": 20,
+                                            "qualifier": "Pass",
+                                            "termType": "Ip4",
+                                            "value": "ip4:136.147.176.0/20",
+                                            "valid": true,
+                                            "explanation": null
+                                        }, {
+                                            "ip": "13.111.0.0",
+                                            "ip4Cidr": 16,
+                                            "qualifier": "Pass",
+                                            "termType": "Ip4",
+                                            "value": "ip4:13.111.0.0/16",
+                                            "valid": true,
+                                            "explanation": null
+                                        }, {
+                                            "ip": "161.71.32.0",
+                                            "ip4Cidr": 17,
+                                            "qualifier": "Pass",
+                                            "termType": "Ip4",
+                                            "value": "ip4:161.71.32.0/17",
+                                            "valid": true,
+                                            "explanation": null
+                                        }, {
+                                            "implicit": false,
+                                            "qualifier": "Fail",
+                                            "termType": "All",
+                                            "value": "-all",
+                                            "valid": true,
+                                            "explanation": null
+                                        }
+                                    ],
+                                    "messages": []
+                                }
+                            ],
+                            "payloadSizeBytes": 354,
+                            "messages": []
+                        },
+                        "qualifier": "Pass",
+                        "termType": "Include",
+                        "value": "include:cust-spf.exacttarget.com",
+                        "valid": true,
+                        "explanation": null
+                    }, {
+                        "implicit": false,
+                        "qualifier": "Fail",
+                        "termType": "All",
+                        "value": "-all",
+                        "valid": true,
+                        "explanation": null
+                    }
+                ],
+                "messages": []
+            }
+        ],
+        "payloadSizeBytes": 947,
+        "messages": [{
+                "id": "dd1f7b6c-ea08-4b23-9020-f9c8107a66ec",
+                "source": "SpfPoller",
+                "messageType": "info",
+                "text": "cumbria.ac.uk: A DNS response should not be larger than 450 bytes in order to work with services which don't support DNS over TCP. This response was 947 bytes.",
+                "markdown": "The 450 bytes is the total of all of the TXT records configured on this domain, including those which are not used for SPF. \n            From [RFC 7208 Section 3.4](https://tools.ietf.org/html/rfc7208#section-3.4):\n            \n            \"If the size of the DNS message, the combined length of the DNS name and the text of all the records \n            of a given type is under 450 octets, then DNS answers ought to fit in UDP packets.\"\n    \n[View your full result using google DNS toolkit](https://toolbox.googleapps.com/apps/dig/#TXT/cumbria.ac.uk)\n\nGenerally domain authentication entries for cloud services require a temporary TXT record to prove domain ownership, you should remove these once complete.\n\nYou may consider:\n\n- moving some senders onto separate subdomains to split your senders.\n- moving some senders into a different TXT record and referring to it using the include tag, but be aware the maximum number of lookups is 10."
+            }
+        ]
+    },
+    "dnsQueryCount": 21,
+    "elapsedQueryTime": "00:00:00.3552241",
+    "messages": [{
+            "id": "6ba5a47e-d212-4131-ac74-38f298a57894",
+            "source": "SpfPoller",
+            "messageType": "error",
+            "text": "The SPF specification limits the amount of DNS lookups for a record to 10. This record currently has at least 20 which will likely cause SPF failures.",
+            "markdown": "You may consider:\n\n- moving some senders onto separate subdomains to split your senders.\n- using a different mechanism instead of mx or a"
+        }
+    ],
+    "id": "cumbria.ac.uk",
+    "correlationId": null,
+    "causationId": "87b16f05-fd70-4f2f-86a7-0161d7d2dc44",
+    "type": null,
+    "messageId": null,
+    "timestamp": "0001-01-01T00:00:00"
+}

@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Scripts\2018-09-12-1437_create_spf_entity_history_table.sql" />
+    <None Remove="Scripts\2018-09-12-1437_create_spf_entity_table.sql" />
+    <None Remove="Scripts\2018-09-12-1440_create_spf_entity_grants.sql" />
+    <None Remove="Scripts\2018-09-12-1440_create_spf_entity_history_grants.sql" />
+    <None Remove="Scripts\2018-09-18-1114_create_spf_scheduled_records_table.sql" />
+    <None Remove="Scripts\2018-09-18-1115_create_spf_scheduled_records_grants.sql" />
+    <None Remove="Scripts\2018-10-18-1146_create_spf_api_grants.sql" />
+    <None Remove="Scripts\2018-12-03-1519_create_new_spf_history_table.sql" />
+    <None Remove="Scripts\2018-12-11-0955_create_new_spf_history_table_grants.sql" />
+    <None Remove="Scripts\2019-02-27-1526_lower_casing_domains.sql" />
+    <None Remove="Scripts\2019-07-15-1109_add_delete_grants.sql" />
+    <None Remove="Scripts\2020-04-03-1453_dev_report_grants.sql.sql" />
+    <None Remove="Scripts\2020-04-06-1453_dev_report_s3_grants.sql" />
+    <None Remove="Scripts\everytime\grants.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\2018-09-12-1437_create_spf_entity_history_table.sql" />
+    <EmbeddedResource Include="Scripts\2018-09-12-1437_create_spf_entity_table.sql" />
+    <EmbeddedResource Include="Scripts\2018-09-12-1440_create_spf_entity_history_grants.sql" />
+    <EmbeddedResource Include="Scripts\2018-09-12-1440_create_spf_entity_grants.sql" />
+    <EmbeddedResource Include="Scripts\2018-09-18-1114_create_spf_scheduled_records_table.sql" />
+    <EmbeddedResource Include="Scripts\2018-09-18-1115_create_spf_scheduled_records_grants.sql" />
+    <EmbeddedResource Include="Scripts\2019-07-15-1109_add_delete_grants.sql" />
+    <EmbeddedResource Include="Scripts\2019-02-27-1526_lower_casing_domains.sql" />
+    <EmbeddedResource Include="Scripts\2018-12-11-0955_create_new_spf_history_table_grants.sql" />
+    <EmbeddedResource Include="Scripts\2018-12-03-1519_create_new_spf_history_table.sql" />
+    <EmbeddedResource Include="Scripts\2018-10-18-1146_create_spf_api_grants.sql" />
+    <EmbeddedResource Include="Scripts\2020-04-03-1453_dev_report_grants.sql.sql" />
+    <EmbeddedResource Include="Scripts\2020-04-06-1453_dev_report_s3_grants.sql" />
+    <EmbeddedResource Include="Scripts\everytime\grants.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MailCheck.Common.Data.Migration" Version="4.3.0" />
+  </ItemGroup>
+
+</Project>

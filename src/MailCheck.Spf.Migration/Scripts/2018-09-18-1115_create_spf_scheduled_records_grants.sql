@@ -1,0 +1,1 @@
+﻿GRANT SELECT, INSERT, UPDATE ON `spf_scheduled_records` TO '{env}-spf-sch' IDENTIFIED BY '{password}';

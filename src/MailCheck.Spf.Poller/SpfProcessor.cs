@@ -1,0 +1,77 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Threading.Tasks;
+using MailCheck.Spf.Poller.Config;
+using MailCheck.Spf.Poller.Dns;
+using MailCheck.Spf.Poller.Domain;
+using MailCheck.Spf.Poller.Exception;
+using MailCheck.Spf.Poller.Expansion;
+using MailCheck.Spf.Poller.Parsing;
+using MailCheck.Spf.Poller.Rules;
+
+namespace MailCheck.Spf.Poller
+{
+    public interface ISpfProcessor
+    {
+        Task<SpfPollResult> Process(string domain);
+    }
+
+    public class SpfProcessor : ISpfProcessor
+    {
+        private readonly IDnsClient _dnsClient;
+        private readonly ISpfRecordsParser _spfRecordsParser;
+        private readonly ISpfRecordExpander _spfRecordExpander;
+        private readonly IEvaluator<SpfPollResult> _pollResultRulesEvaluator;
+        private readonly ISpfPollerConfig _config;
+
+        public SpfProcessor(IDnsClient dnsClient,
+            ISpfRecordsParser spfRecordsParser,
+            ISpfRecordExpander spfRecordExpander,
+             IEvaluator<SpfPollResult> pollResultRulesEvaluator, 
+            ISpfPollerConfig config)
+        {
+            _dnsClient = dnsClient;
+            _spfRecordsParser = spfRecordsParser;
+            _spfRecordExpander = spfRecordExpander;
+            _pollResultRulesEvaluator = pollResultRulesEvaluator;
+            _config = config;
+        }
+
+        public async Task<SpfPollResult> Process(string domain)
+        {
+            Stopwatch stopwatch = Stopwatch.StartNew();
+
+            DnsResult<List<List<string>>> spfDnsRecords = await _dnsClient.GetSpfRecords(domain);
+
+            if (!_config.AllowNullResults && (spfDnsRecords.IsErrored ||
+                                              spfDnsRecords.Value.Count == 0 ||
+                                              spfDnsRecords.Value.TrueForAll(x =>
+                                                  x.TrueForAll(string.IsNullOrWhiteSpace))))
+            {
+                throw new SpfPollerException($"Unable to retrieve spf records for {domain}.");
+            }
+
+            if (spfDnsRecords.IsErrored)
+            {
+                string message = string.Format(SpfProcessorResource.FailedSpfRecordQueryErrorMessage, domain, spfDnsRecords.Error);
+                string markdown = string.Format(SpfProcessorMarkdownResource.FailedSpfRecordQueryErrorMessage, domain, spfDnsRecords.Error);
+                Guid id = Guid.Parse("76390C8C-12D5-47FF-981E-D880D2B77216");
+
+                return new SpfPollResult(new Error(id, ErrorType.Error, message, markdown));
+            }
+
+            SpfRecords root = await _spfRecordsParser.Parse(domain, spfDnsRecords.Value, spfDnsRecords.MessageSize);
+
+            int lookupCount = await _spfRecordExpander.ExpandSpfRecords(domain, root);
+
+            SpfPollResult pollResult = new SpfPollResult(root, lookupCount, stopwatch.Elapsed);
+
+            EvaluationResult<SpfPollResult> errors = await _pollResultRulesEvaluator.Evaluate(pollResult);
+
+            pollResult.Errors.AddRange(errors.Errors);
+
+            return pollResult;
+        }
+    }
+}
