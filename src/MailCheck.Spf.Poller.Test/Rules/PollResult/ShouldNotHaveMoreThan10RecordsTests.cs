@@ -31,16 +31,18 @@ namespace MailCheck.Spf.Poller.Test.Rules.PollResult
             List<Error> result = await _rule.Evaluate(spfPollResult);
             Assert.That(result.Count, Is.EqualTo(1));
             Assert.That(result[0].ErrorType, Is.EqualTo(ErrorType.Warning));
-            Assert.That(result[0].Message, Is.EqualTo("The SPF specification limits the amount of DNS lookups for a record to 10. This record currently has 10 which could be taken over the limit by a third party change."));
+            Assert.That(result[0].Message, Is.EqualTo("The SPF specification limits the amount of DNS lookups for a record to 10. This record currently has 10 which could be taken over the limit by a third party change. You are likely to experience SPF failures if you exceed the limit of 10."));
 
         }
+
+        [Test]
         public async Task FiveSpfRecordsShouldGiveInfo()
         {
             SpfPollResult spfPollResult = new SpfPollResult(new SpfRecords(new List<SpfRecord>(), 0), 5, TimeSpan.MaxValue);
             List<Error> result = await _rule.Evaluate(spfPollResult);
             Assert.That(result.Count, Is.EqualTo(1));
             Assert.That(result[0].ErrorType, Is.EqualTo(ErrorType.Info));
-            Assert.That(result[0].Message, Is.EqualTo(" This record currently has 5 DNS lookups."));
+            Assert.That(result[0].Message, Is.EqualTo("5/10 DNS lookups used. You are likely to experience SPF failures if you exceed this limit of 10."));
         }
 
         [Test]

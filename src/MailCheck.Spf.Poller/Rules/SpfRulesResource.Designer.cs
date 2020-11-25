@@ -19,7 +19,7 @@ namespace MailCheck.Spf.Poller.Rules {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class SpfRulesResource {
@@ -70,7 +70,7 @@ namespace MailCheck.Spf.Poller.Rules {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The SPF specification limits the amount of DNS lookups for a record to 10. This record currently has {0} which could be taken over the limit by a third party change..
+        ///   Looks up a localized string similar to The SPF specification limits the amount of DNS lookups for a record to 10. This record currently has {0} which could be taken over the limit by a third party change. You are likely to experience SPF failures if you exceed the limit of 10..
         /// </summary>
         public static string CloseTo10QueryLookupsErrorMessage {
             get {
@@ -115,7 +115,7 @@ namespace MailCheck.Spf.Poller.Rules {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0}/10 DNS lookups used..
+        ///   Looks up a localized string similar to {0}/10 DNS lookups used. You are likely to experience SPF failures if you exceed this limit of 10..
         /// </summary>
         public static string QueryLookupsInfoMessage {
             get {

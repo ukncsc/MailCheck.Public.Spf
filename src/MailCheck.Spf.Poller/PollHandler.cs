@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using MailCheck.Common.Messaging.Abstractions;
 using MailCheck.Spf.Contracts.Entity;
 using MailCheck.Spf.Contracts.Poller;
@@ -29,15 +30,24 @@ namespace MailCheck.Spf.Poller
 
         public async Task Handle(SpfPollPending message)
         {
-            SpfPollResult spfPollResult = await _processor.Process(message.Id);
+            try
+            {
+                SpfPollResult spfPollResult = await _processor.Process(message.Id);
 
-            _log.LogInformation("Polled SPF records for {Domain}", message.Id);
+                _log.LogInformation("Polled SPF records for {Domain}", message.Id);
 
-            SpfRecordsPolled spfRecordsPolled = spfPollResult.ToSpfRecordsPolled(message.Id);
+                SpfRecordsPolled spfRecordsPolled = spfPollResult.ToSpfRecordsPolled(message.Id);
 
-            _dispatcher.Dispatch(spfRecordsPolled, _config.SnsTopicArn);
+                _dispatcher.Dispatch(spfRecordsPolled, _config.SnsTopicArn);
 
-            _log.LogInformation("Published SPF records for {Domain}", message.Id);
+                _log.LogInformation("Published SPF records for {Domain}", message.Id);
+            }
+            catch (System.Exception e)
+            {
+                string error = $"Error occurred polling domain {message.Id}";
+                _log.LogError(e, error);
+                throw;
+            }
         }
     }
 }

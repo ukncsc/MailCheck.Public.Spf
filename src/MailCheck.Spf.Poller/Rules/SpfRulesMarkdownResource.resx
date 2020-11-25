@@ -160,16 +160,118 @@ You may consider:
 - moving some senders into a different TXT record and referring to it using the include tag, but be aware the maximum number of lookups is 10.</value>
   </data>
   <data name="ShouldNotHaveMoreThan10QueryLookupsErrorMessage" xml:space="preserve">
-    <value>You may consider:
+    <value>
+#### Why is there a DNS lookup limit?
 
-- moving some senders onto separate subdomains to split your senders.
-- using a different mechanism instead of mx or a</value>
+As part of evaluating whether an email message passes SPF authentication, a receiving mail server may have to make one or more DNS lookups. An example of a basic SPF record to be added to an organisation's public DNS where it uses Google would look like this:
+
+```v=spf1 include:_spf.google.com ~all```
+
+The SPF protocol has some built-in protection – it protects receiving mail servers from **denial of service attacks** by limiting the number of domain lookups to 10. However, this has a downside; if you exceed this limit your emails are likely to fail SPF checks, which would lead to email delivery issues.
+
+#### What counts towards the limit of 10?
+
+The following mechanisms and modifiers in your SPF record count toward the limit of 10:
+
+- include 
+- a 
+- mx 
+- ptr 
+- exists 
+- redirect
+
+Furthermore, the DNS lookup limit is often breached by 'nested' lookups caused by the use of an 'include'. In the example above, whereby the SPF record includes `_spf.google.com`, looking up the contents of this record in DNS we find that it includes 3 `google.com` subdomains (ie a total of 4 lookups).
+
+Mail Check expands your SPF record at the bottom of this page to help you understand nested lookups further.
+
+#### How to get your DNS lookups under 10
+
+**Avoid using a and mx mechanisms.** Use an alternative mechanism that doesn’t count toward the limit of 10, for example by listing the IP4 or IP6 address ranges
+
+**Remove legacy systems.** Check for and remove any SPF ‘include’ statements that relate to systems that are no longer in use in the organisation.
+
+**Use sub-domains.** If you use 3rd party suppliers to send emails for you, we recommend creating a sub-domain each. For example, marketing.yourorganisation.gov.uk for your mass mail outs and newsletters. Not only do you solve the SPF problem, but by doing this, you gain greater visibility and control of each domain. And, if you identify fraudulent use, for example, you will be able to take quicker preventative action, limiting the negative impacts of legitimate email traffic on your other domains.
+
+#### Further information
+
+[https://www.ncsc.gov.uk/collection/email-security-and-anti-spoofing/create-and-iterate-an-spf-record](https://www.ncsc.gov.uk/collection/email-security-and-anti-spoofing/create-and-iterate-an-spf-record)
+    </value>
   </data>
    <data name="CloseTo10QueryLookupsErrorMessage" xml:space="preserve">
-    <value />
+    <value>
+#### Why is there a DNS lookup limit?
+
+As part of evaluating whether an email message passes SPF authentication, a receiving mail server may have to make one or more DNS lookups. An example of a basic SPF record to be added to an organisation's public DNS where it uses Google would look like this:
+
+```v=spf1 include:_spf.google.com ~all```
+
+The SPF protocol has some built-in protection – it protects receiving mail servers from **denial of service attacks** by limiting the number of domain lookups to 10. However, this has a downside; if you exceed this limit your emails are likely to fail SPF checks, which would lead to email delivery issues.
+
+#### What counts towards the limit of 10?
+
+The following mechanisms and modifiers in your SPF record count toward the limit of 10:
+
+- include 
+- a 
+- mx 
+- ptr 
+- exists 
+- redirect
+
+Furthermore, the DNS lookup limit is often breached by 'nested' lookups caused by the use of an 'include'. In the example above, whereby the SPF record includes `_spf.google.com`, looking up the contents of this record in DNS we find that it includes 3 `google.com` subdomains (ie a total of 4 lookups).
+
+Mail Check expands your SPF record at the bottom of this page to help you understand nested lookups further.
+
+#### How to get your DNS lookups under 10
+
+**Avoid using a and mx mechanisms.** Use an alternative mechanism that doesn’t count toward the limit of 10, for example by listing the IP4 or IP6 address ranges
+
+**Remove legacy systems.** Check for and remove any SPF ‘include’ statements that relate to systems that are no longer in use in the organisation.
+
+**Use sub-domains.** If you use 3rd party suppliers to send emails for you, we recommend creating a sub-domain each. For example, marketing.yourorganisation.gov.uk for your mass mail outs and newsletters. Not only do you solve the SPF problem, but by doing this, you gain greater visibility and control of each domain. And, if you identify fraudulent use, for example, you will be able to take quicker preventative action, limiting the negative impacts of legitimate email traffic on your other domains.
+
+#### Further information
+
+[https://www.ncsc.gov.uk/collection/email-security-and-anti-spoofing/create-and-iterate-an-spf-record](https://www.ncsc.gov.uk/collection/email-security-and-anti-spoofing/create-and-iterate-an-spf-record)
+    </value>
   </data>
   <data name="QueryLookupsInfoMessage" xml:space="preserve">
-    <value />
+    <value>
+#### Why is there a DNS lookup limit?
+
+As part of evaluating whether an email message passes SPF authentication, a receiving mail server may have to make one or more DNS lookups. An example of a basic SPF record to be added to an organisation's public DNS where it uses Google would look like this:
+
+```v=spf1 include:_spf.google.com ~all```
+
+The SPF protocol has some built-in protection – it protects receiving mail servers from **denial of service attacks** by limiting the number of domain lookups to 10. However, this has a downside; if you exceed this limit your emails are likely to fail SPF checks, which would lead to email delivery issues.
+
+#### What counts towards the limit of 10?
+
+The following mechanisms and modifiers in your SPF record count toward the limit of 10:
+
+- include 
+- a 
+- mx 
+- ptr 
+- exists 
+- redirect
+
+Furthermore, the DNS lookup limit is often breached by 'nested' lookups caused by the use of an 'include'. In the example above, whereby the SPF record includes `_spf.google.com`, looking up the contents of this record in DNS we find that it includes 3 `google.com` subdomains (ie a total of 4 lookups).
+
+Mail Check expands your SPF record at the bottom of this page to help you understand nested lookups further.
+
+#### How to get your DNS lookups under 10
+
+**Avoid using a and mx mechanisms.** Use an alternative mechanism that doesn’t count toward the limit of 10, for example by listing the IP4 or IP6 address ranges
+
+**Remove legacy systems.** Check for and remove any SPF ‘include’ statements that relate to systems that are no longer in use in the organisation.
+
+**Use sub-domains.** If you use 3rd party suppliers to send emails for you, we recommend creating a sub-domain each. For example, marketing.yourorganisation.gov.uk for your mass mail outs and newsletters. Not only do you solve the SPF problem, but by doing this, you gain greater visibility and control of each domain. And, if you identify fraudulent use, for example, you will be able to take quicker preventative action, limiting the negative impacts of legitimate email traffic on your other domains.
+
+#### Further information
+
+[https://www.ncsc.gov.uk/collection/email-security-and-anti-spoofing/create-and-iterate-an-spf-record](https://www.ncsc.gov.uk/collection/email-security-and-anti-spoofing/create-and-iterate-an-spf-record)
+    </value>
   </data>
 
 
