@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Threading.Tasks;
 using FakeItEasy;
+using MailCheck.Common.Data;
 using MailCheck.Common.Data.Abstractions;
 using MailCheck.Common.TestSupport;
+using MailCheck.Common.Util;
 using MailCheck.Spf.Migration;
 using MailCheck.Spf.Scheduler.Config;
 using MailCheck.Spf.Scheduler.Dao;
@@ -27,14 +29,14 @@ namespace MailCheck.Spf.Scheduler.Test.Dao
 
             TruncateDatabase().Wait();
 
-            IConnectionInfoAsync connectionInfoAsync = A.Fake<IConnectionInfoAsync>();
-            A.CallTo(() => connectionInfoAsync.GetConnectionStringAsync()).Returns(ConnectionString);
-
             ISpfPeriodicSchedulerConfig config = A.Fake<ISpfPeriodicSchedulerConfig>();
             A.CallTo(() => config.RefreshIntervalSeconds).Returns(0);
             A.CallTo(() => config.DomainBatchSize).Returns(10);
 
-            _dao = new SpfPeriodicSchedulerDao(connectionInfoAsync, config);
+            IDatabase database = A.Fake<IDatabase>();
+            IClock clock = A.Fake<IClock>();
+
+            _dao = new SpfPeriodicSchedulerDao(database, config, clock);
         }
 
         [Test]

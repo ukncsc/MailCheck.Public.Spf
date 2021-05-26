@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FakeItEasy;
-using MailCheck.Spf.Contracts.External;
+using MailCheck.Common.Contracts.Messaging;
 using MailCheck.Spf.Contracts.Poller;
 using MailCheck.Spf.Contracts.SharedDomain;
 using MailCheck.Spf.EntityHistory.Dao;

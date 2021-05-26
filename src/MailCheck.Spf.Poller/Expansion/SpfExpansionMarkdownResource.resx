@@ -139,4 +139,7 @@ querying more than 10 address records – either "A" or "AAAA"
 resource records.  If this limit is exceeded, the "mx" mechanism MUST
 produce a "permerror" result.`</value>
   </data>
+  <data name="RecursionDetectedErrorMessage" xml:space="preserve">
+    <value>The term `{0}` is causing a DNS query to a parent SPF record.</value>
+  </data>
 </root>

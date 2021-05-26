@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using MailCheck.Common.Contracts.Messaging;
 using MailCheck.Common.Messaging.Abstractions;
-using MailCheck.Spf.Contracts.External;
 using MailCheck.Spf.Contracts.Poller;
 using MailCheck.Spf.EntityHistory.Dao;
 using Microsoft.Extensions.Logging;
@@ -24,21 +24,19 @@ namespace MailCheck.Spf.EntityHistory.Entity
 
         public async Task Handle(DomainCreated message)
         {
-            string messageId = message.Id.ToLower();
+            string domain = message.Id.ToLower();
 
-            SpfHistoryEntityState state = await _dao.Get(messageId);
+            SpfHistoryEntityState state = await _dao.Get(domain);
 
             if (state == null)
             {
-                state = new SpfHistoryEntityState(messageId);
+                state = new SpfHistoryEntityState(domain);
                 await _dao.Save(state);
-                _log.LogInformation("Created SpfEntityHistory for {Id}.", messageId);
+                _log.LogInformation($"Created SpfEntityHistory for {domain}.");
             }
             else
             {
-                _log.LogWarning("Ignoring {EventName} as SpfEntityHistory already exists for {Id}.",
-                    nameof(DomainCreated), messageId);
-                ;
+                _log.LogInformation($"Ignoring {nameof(DomainCreated)} as SpfEntityHistory already exists for {domain}.");
             }
         }
 

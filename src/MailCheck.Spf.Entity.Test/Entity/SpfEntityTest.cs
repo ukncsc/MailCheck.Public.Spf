@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using FakeItEasy;
+using MailCheck.Common.Contracts.Messaging;
 using MailCheck.Common.Messaging.Abstractions;
 using MailCheck.Spf.Contracts;
 using MailCheck.Spf.Contracts.Entity;
 using MailCheck.Spf.Contracts.Evaluator;
-using MailCheck.Spf.Contracts.External;
-using MailCheck.Spf.Contracts.Poller;
 using MailCheck.Spf.Contracts.Scheduler;
 using MailCheck.Spf.Contracts.SharedDomain;
 using MailCheck.Spf.Entity.Config;
@@ -59,12 +58,14 @@ namespace MailCheck.Spf.Entity.Test.Entity
         }
 
         [Test]
-        public void HandleDomainCreatedThrowsIfEntityAlreadyExistsForDomain()
+        public async Task HandleDomainCreatedThrowsIfEntityAlreadyExistsForDomain()
         {
             A.CallTo(() => _spfEntityDao.Get(Id))
                 .Returns(new SpfEntityState(Id, 1, SpfState.PollPending, DateTime.UtcNow));
-            Assert.ThrowsAsync<InvalidOperationException>(() =>
-                _spfEntity.Handle(new DomainCreated(Id, "test@test.com", DateTime.Now)));
+            await _spfEntity.Handle(new DomainCreated(Id, "test@test.com", DateTime.Now));
+
+            A.CallTo(() => _spfEntityDao.Save(A<SpfEntityState>._)).MustNotHaveHappened();
+            A.CallTo(() => _dispatcher.Dispatch(A<SpfEntityCreated>._, A<string>._)).MustHaveHappenedOnceExactly();
         }
 
         [Test]

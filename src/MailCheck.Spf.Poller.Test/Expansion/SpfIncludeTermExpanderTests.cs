@@ -62,5 +62,17 @@ namespace MailCheck.Spf.Poller.Test.Expansion
             Assert.That(include.AllErrors.Count, Is.EqualTo(1));
             Assert.AreEqual("Failed SPF record query for domain with error Error", include.AllErrors[0].Message);
         }
+
+        [Test]
+        public async Task NoLookupForMacro()
+        {
+            string macro = "%{o}";
+
+            Include include = new Include("", Qualifier.Pass, new DomainSpec(macro));
+
+            SpfRecords spfRecords = await _spfIncludeTermExpander.Process("", include);
+
+            A.CallTo(() => _dnsClient.GetMxRecords(A<string>._)).MustNotHaveHappened();
+        }
     }
 }

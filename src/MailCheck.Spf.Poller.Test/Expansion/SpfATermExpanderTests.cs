@@ -79,5 +79,18 @@ namespace MailCheck.Spf.Poller.Test.Expansion
             Assert.That(term.AllErrors.Count, Is.EqualTo(1));
             Assert.AreEqual("Failed A record query for domain with error Error", term.AllErrors[0].Message);
         }
+
+        [Test]
+        public async Task NoLookupForMacro()
+        {
+            string macro = "%{o}";
+
+            Domain.A term = new Domain.A("", Qualifier.Pass, new DomainSpec(macro),
+                new DualCidrBlock(new Ip4CidrBlock(32), new Ip6CidrBlock(128)));
+
+            SpfRecords spfRecords = await _spfATermExpander.Process("", term);
+
+            A.CallTo(() => _dnsClient.GetMxRecords(A<string>._)).MustNotHaveHappened();
+        }
     }
 }

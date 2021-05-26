@@ -19,7 +19,7 @@ namespace MailCheck.Spf.Poller.Expansion {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class SpfExpansionMarkdownResource {
@@ -88,7 +88,25 @@ namespace MailCheck.Spf.Poller.Expansion {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to The term `{0}` is causing a DNS query to a parent SPF record..
+        /// </summary>
+        public static string RecursionDetectedErrorMessage {
+            get {
+                return ResourceManager.GetString("RecursionDetectedErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This MX record has over ten A record results which is not allowed.
+        ///
+        ///[From the SPF RFC:](https://tools.ietf.org/html/rfc7208#section-4.6.4)
+        ///
+        ///`When evaluating the &quot;mx&quot; mechanism, the number of &quot;MX&quot; resource
+        ///records queried is included in the overall limit of 10 mechanisms/
+        ///modifiers that cause DNS lookups as described above.  In addition to
+        ///that limit, the evaluation of each &quot;MX&quot; record MUST NOT result in
+        ///querying more than 10 address records – either &quot;A&quot; or &quot;AAAA&quot;
+        ///resource records.  If this limit is [rest of string was truncated]&quot;;.
         /// </summary>
         public static string TooManyARecordsErrorMessage {
             get {

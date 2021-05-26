@@ -10,12 +10,14 @@
   <ItemGroup>
     <PackageReference Include="Amazon.Lambda.Core" Version="1.0.0" />
     <PackageReference Include="Amazon.Lambda.Serialization.Json" Version="1.4.0" />
-    <PackageReference Include="MailCheck.Common.Data" Version="2.6.0.58" />
-    <PackageReference Include="MailCheck.Common.Messaging" Version="2.6.0.58" />
-    <PackageReference Include="MailCheck.Common.Util" Version="2.6.0.58" />
-    <PackageReference Include="MailCheck.Common.SSM" Version="2.6.0.58" />
+    <PackageReference Include="MailCheck.Common.Contracts" Version="5.1.0" />
+    <PackageReference Include="MailCheck.Common.Data" Version="4.10.3" />
+    <PackageReference Include="MailCheck.Common.Messaging" Version="4.10.3" />
+    <PackageReference Include="MailCheck.Common.SSM" Version="4.10.3" />
+    <PackageReference Include="MailCheck.Common.Util" Version="4.10.3" />
     <PackageReference Include="Microsoft.Extensions.CommandLineUtils" Version="1.1.1" />
     <PackageReference Include="Amazon.Lambda.SQSEvents" Version="1.0.0" />
+    <PackageReference Include="Dapper" Version="2.0.35" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,15 +27,7 @@
   <ItemGroup>
     <ProjectReference Include="..\MailCheck.Spf.Contracts\MailCheck.Spf.Contracts.csproj" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Config\" />
-    <Folder Include="Dao\" />
-    <Folder Include="Processor\" />
-    <Folder Include="Handler\" />
-    <Folder Include="Dao\Model\" />
-    <Folder Include="Mapping\" />
-  </ItemGroup>
+    
   <ItemGroup>
     <EmbeddedResource Update="Dao\SpfSchedulerDaoResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

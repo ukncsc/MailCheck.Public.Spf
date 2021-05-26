@@ -15,7 +15,5 @@ namespace MailCheck.Spf.Scheduler.Config
         }
 
         public string PublisherConnectionString { get; }
-
-        public long RefreshIntervalSeconds { get; }
     }
 }

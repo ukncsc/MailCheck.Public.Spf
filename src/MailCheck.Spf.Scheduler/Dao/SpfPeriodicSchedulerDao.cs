@@ -1,13 +1,12 @@
-﻿using System.Collections.Generic;
-using System.Data.Common;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using MailCheck.Common.Data.Abstractions;
+using Dapper;
+using MailCheck.Common.Data;
 using MailCheck.Spf.Scheduler.Config;
 using MailCheck.Spf.Scheduler.Dao.Model;
-using MySql.Data.MySqlClient;
-using MailCheck.Common.Data.Util;
-using MySqlHelper = MailCheck.Common.Data.Util.MySqlHelper;
+using MailCheck.Common.Util;
 
 namespace MailCheck.Spf.Scheduler.Dao
 {
@@ -16,57 +15,47 @@ namespace MailCheck.Spf.Scheduler.Dao
         Task UpdateLastChecked(List<SpfSchedulerState> entitiesToUpdate);
         Task<List<SpfSchedulerState>> GetExpiredSpfRecords();
     }
-
+    
     public class SpfPeriodicSchedulerDao : ISpfPeriodicSchedulerDao
     {
-        private readonly IConnectionInfoAsync _connectionInfo;
+        private readonly IDatabase _database;
+        private readonly IClock _clock;
         private readonly ISpfPeriodicSchedulerConfig _config;
 
-        public SpfPeriodicSchedulerDao(IConnectionInfoAsync connectionInfo, ISpfPeriodicSchedulerConfig config)
+        public SpfPeriodicSchedulerDao(IDatabase database,
+            ISpfPeriodicSchedulerConfig config, IClock clock)
         {
-            _connectionInfo = connectionInfo;
+            _database = database;
             _config = config;
-        }
-
-        public async Task<List<SpfSchedulerState>> GetExpiredSpfRecords()
-        {
-            MySqlParameter[] parameters = {
-                new MySqlParameter("refreshIntervalSeconds", _config.RefreshIntervalSeconds),
-                new MySqlParameter("limit", _config.DomainBatchSize)
-            };
-
-            string connectionString = await _connectionInfo.GetConnectionStringAsync();
-
-            List<SpfSchedulerState> states = new List<SpfSchedulerState>();
-            using (DbDataReader reader = await MySqlHelper.ExecuteReaderAsync(connectionString,
-                SpfPeriodicSchedulerDaoResources.SelectSpfRecordsToSchedule, parameters))
-            {
-                while (await reader.ReadAsync())
-                {
-                    states.Add(CreateSpfSchedulerState(reader));
-                }
-            }
-
-            return states;
+            _clock = clock;
         }
 
         public async Task UpdateLastChecked(List<SpfSchedulerState> entitiesToUpdate)
         {
-            string query = string.Format(SpfPeriodicSchedulerDaoResources.UpdateSpfRecordsLastChecked,
-                string.Join(',', entitiesToUpdate.Select((_, i) => $"@domainName{i}")));
-
-            MySqlParameter[] parameters = entitiesToUpdate
-                .Select((_, i) => new MySqlParameter($"domainName{i}", _.Id.ToLower()))
-                .ToArray();
-
-            string connectionString = await _connectionInfo.GetConnectionStringAsync();
-
-            await MySqlHelper.ExecuteNonQueryAsync(connectionString, query, parameters);
+            using (var connection = await _database.CreateAndOpenConnectionAsync())
+            {
+                var parameters = entitiesToUpdate
+                    .Select(ent => new {id = ent.Id, lastChecked = GetAdjustedLastCheckedTime()}).ToArray();
+                await connection.ExecuteAsync(SpfPeriodicSchedulerDaoResources.UpdateSpfRecordsLastCheckedDistributed,
+                    parameters);
+            }
         }
 
-        private SpfSchedulerState CreateSpfSchedulerState(DbDataReader reader)
+        public async Task<List<SpfSchedulerState>> GetExpiredSpfRecords()
         {
-            return new SpfSchedulerState(reader.GetString("id"));
+            DateTime nowMinusInterval = _clock.GetDateTimeUtc().AddSeconds(-_config.RefreshIntervalSeconds);
+            using (var connection = await _database.CreateAndOpenConnectionAsync())
+            {
+                var records = (await connection.QueryAsync<string>(SpfPeriodicSchedulerDaoResources.SelectSpfRecordsToSchedule,
+                    new {now_minus_interval = nowMinusInterval, limit = _config.DomainBatchSize})).ToList();
+
+                return records.Select(record => new SpfSchedulerState(record)).ToList();
+            }
+        }
+
+        private DateTime GetAdjustedLastCheckedTime()
+        {
+            return _clock.GetDateTimeUtc().AddSeconds(-(new Random().NextDouble() * 3600));
         }
     }
 }

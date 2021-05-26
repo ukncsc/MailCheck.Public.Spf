@@ -64,8 +64,6 @@ namespace MailCheck.Spf.Scheduler
                 {
                     await ProcessMessages(queueUrl, entryPoint, receiveMessageRequest);
                 }
-
-                return 0;
             });
         };
 

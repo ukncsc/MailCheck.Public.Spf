@@ -129,4 +129,7 @@
   <data name="TooManyARecordsErrorMessage" xml:space="preserve">
     <value>Too many A records {0} returned for {1}. Limit is 10.</value>
   </data>
+  <data name="RecursionDetectedErrorMessage" xml:space="preserve">
+    <value>Your SPF record includes a circular reference to itself, and so Mail Check is unable to expand your SPF record. This could also cause issues for any email service that checks your SPF record</value>
+  </data>
 </root>

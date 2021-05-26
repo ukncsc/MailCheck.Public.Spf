@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
+using MailCheck.Common.Contracts.Messaging;
 using MailCheck.Common.Messaging.Abstractions;
 using MailCheck.Spf.Contracts.Entity;
-using MailCheck.Spf.Contracts.External;
 using MailCheck.Spf.Scheduler.Config;
 using MailCheck.Spf.Scheduler.Dao;
 using MailCheck.Spf.Scheduler.Dao.Model;
@@ -31,8 +31,15 @@ namespace MailCheck.Spf.Scheduler.Handler
         public async Task Handle(DomainDeleted message)
         {
             string domain = message.Id.ToLower();
-            await _dao.Delete(domain);
-            _log.LogInformation($"Deleted schedule for SPF entity with id: {domain}.");
+            int rows = await _dao.Delete(domain);
+            if (rows == 1)
+            {
+                _log.LogInformation($"Deleted schedule for SPF entity with id: {domain}.");
+            }
+            else
+            {
+                _log.LogInformation($"Schedule already deleted for SPF entity with id: {domain}.");
+            }
         }
 
         public async Task Handle(SpfEntityCreated message)

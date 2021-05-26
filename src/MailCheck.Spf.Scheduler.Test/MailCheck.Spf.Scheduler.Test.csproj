@@ -5,6 +5,7 @@
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="FakeItEasy" Version="5.0.1" />
+        <PackageReference Include="MailCheck.Common.Contracts" Version="5.1.0" />
         <PackageReference Include="MailCheck.Common.TestSupport" Version="2.6.0.58" />
         <PackageReference Include="NUnit3TestAdapter" Version="3.12.0" />
         <PackageReference Include="NUnit" Version="3.11.0" />

@@ -47,6 +47,7 @@ namespace MailCheck.Spf.Entity.Entity.Notifiers
 
                 List<Message> removedMessages = currentRecordsMessages.Except(newRecordsMessages, _messageEqualityComparer).ToList();
                 List<Message> addedMessages = newRecordsMessages.Except(currentRecordsMessages, _messageEqualityComparer).ToList();
+                List<Message> sustainedMessages = currentRecordsMessages.Intersect(newRecordsMessages, _messageEqualityComparer).ToList();
 
                 if (addedMessages.Any())
                 {
@@ -61,6 +62,14 @@ namespace MailCheck.Spf.Entity.Entity.Notifiers
                     _dispatcher.Dispatch(
                         new SpfAdvisoryRemoved(state.Id,
                             removedMessages.Select(x => new AdvisoryMessage(x.MessageType, x.Text)).ToList()),
+                        _spfEntityConfig.SnsTopicArn);
+                }
+
+                if (sustainedMessages.Any())
+                {
+                    _dispatcher.Dispatch(
+                        new SpfAdvisorySustained(state.Id,
+                            sustainedMessages.Select(x => new AdvisoryMessage(x.MessageType, x.Text)).ToList()),
                         _spfEntityConfig.SnsTopicArn);
                 }
             }

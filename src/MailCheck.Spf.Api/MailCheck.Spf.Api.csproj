@@ -8,7 +8,7 @@
         <PackageReference Include="Flurl" Version="2.8.0" />
         <PackageReference Include="Flurl.Http" Version="2.4.0" />
         <PackageReference Include="MailCheck.Common.Api" Version="2.6.0.58" />
-        <PackageReference Include="MailCheck.Common.Contracts" Version="2.6.0.58" />
+        <PackageReference Include="MailCheck.Common.Contracts" Version="5.1.0" />
         <PackageReference Include="MailCheck.Common.Data" Version="2.6.0.58" />
         <PackageReference Include="MailCheck.Common.Environment" Version="2.6.0.58" />
         <PackageReference Include="MailCheck.Common.Logging" Version="2.6.0.58" />

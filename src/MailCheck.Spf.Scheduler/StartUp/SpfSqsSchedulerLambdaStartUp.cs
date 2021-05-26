@@ -1,4 +1,5 @@
-﻿using MailCheck.Common.Messaging.Abstractions;
+﻿using MailCheck.Common.Data;
+using MailCheck.Common.Messaging.Abstractions;
 using MailCheck.Spf.Contracts.Entity;
 using MailCheck.Spf.Scheduler.Config;
 using MailCheck.Spf.Scheduler.Dao;
@@ -15,8 +16,9 @@ namespace MailCheck.Spf.Scheduler.StartUp
 
             services
                 .AddTransient<ISpfSchedulerConfig, SpfSchedulerConfig>()
-                .AddTransient<IHandle<SpfEntityCreated>, SpfSchedulerHandler>()
-                .AddTransient<ISpfSchedulerDao, SpfSchedulerDao>();
+                .AddTransient<SpfSchedulerHandler>()
+                .AddTransient<ISpfSchedulerDao, SpfSchedulerDao>()
+                .AddSingleton<IDatabase, DefaultDatabase<MySqlProvider>>();
         }
     }
 }

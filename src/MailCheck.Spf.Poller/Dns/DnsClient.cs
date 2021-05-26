@@ -18,6 +18,8 @@ namespace MailCheck.Spf.Poller.Dns
 
     public class DnsClient : IDnsClient
     {
+        private const string SERV_FAILURE_ERROR = "Server Failure";
+        private const string NON_EXISTENT_DOMAIN_ERROR = "Non-Existent Domain";
         private readonly ILookupClient _lookupClient;
         private readonly ILogger<IDnsClient> _log;
 
@@ -31,11 +33,11 @@ namespace MailCheck.Spf.Poller.Dns
         {
             IDnsQueryResponse response = await _lookupClient.QueryAsync(domain, QueryType.TXT);
 
-            if (response.HasError)
+            if (response.HasError && response.ErrorMessage != NON_EXISTENT_DOMAIN_ERROR && response.ErrorMessage != SERV_FAILURE_ERROR)
             {
-                return new DnsResult<List<List<string>>>(response.ErrorMessage);
+                return new DnsResult<List<List<string>>>(response.ErrorMessage, response.NameServer.ToString(), response.AuditTrail);
             }
-
+            
             return new DnsResult<List<List<string>>>(
                 response.Answers
                     .OfType<TxtRecord>()

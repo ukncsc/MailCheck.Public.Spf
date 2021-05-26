@@ -10,6 +10,7 @@ namespace MailCheck.Spf.Poller.Expansion
     public class SpfATermExpander : ISpfTermExpanderStrategy
     {
         private readonly IDnsClient _dnsClient;
+        private readonly SpfMacroExpander _macroExpander = new SpfMacroExpander();
 
         public Guid Id => Guid.Parse("9DCF1968-3D23-4D47-A7E8-B3032A2CC42D");
 
@@ -25,6 +26,11 @@ namespace MailCheck.Spf.Poller.Expansion
             string aDomain = string.IsNullOrEmpty(a.DomainSpec.Domain)
                 ? domain
                 : a.DomainSpec.Domain;
+
+            if (_macroExpander.IsMacro(aDomain))
+            {
+                return null;
+            }
 
             DnsResult<List<string>> ips = await _dnsClient.GetARecords(aDomain);
 

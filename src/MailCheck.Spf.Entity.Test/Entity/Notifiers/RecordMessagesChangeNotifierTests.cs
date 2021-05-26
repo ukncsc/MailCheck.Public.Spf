@@ -10,6 +10,7 @@ using MailCheck.Spf.Entity.Entity.RecordChanged;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Message = MailCheck.Spf.Contracts.SharedDomain.Message;
 
 namespace MailCheck.Spf.Entity.Test.Entity.Notifiers
@@ -38,7 +39,6 @@ namespace MailCheck.Spf.Entity.Test.Entity.Notifiers
             });
         }
 
-
         [Test]
         public void SpfRecordsWithSameMessageTest()
         {
@@ -59,7 +59,7 @@ namespace MailCheck.Spf.Entity.Test.Entity.Notifiers
 
 
         [Test]
-        public void SpfRecordsWithSameMessageIdAndDifferentMessageTypeDoesNotRaiseANotificationTest()
+        public void SpfRecordsWithSameMessageIdAndDifferentMessageTypeDoesRaisesOnlySustainedMessageTest()
         {
             Guid id = Guid.NewGuid();
 
@@ -88,11 +88,13 @@ namespace MailCheck.Spf.Entity.Test.Entity.Notifiers
                 .MustNotHaveHappened();
             FakeItEasy.A.CallTo(() => _dispatcher.Dispatch(A<SpfAdvisoryRemoved>._, A<string>._))
                 .MustNotHaveHappened();
+            FakeItEasy.A.CallTo(() => _dispatcher.Dispatch(A<SpfAdvisorySustained>.That.Matches(x => x.Messages.First().Text == "world"), A<string>._)).MustHaveHappenedOnceExactly();
+            FakeItEasy.A.CallTo(() => _dispatcher.Dispatch(A<SpfAdvisorySustained>._, A<string>._))
+                .MustHaveHappenedOnceExactly();
         }
-
-
+        
         [Test]
-        public void SpfRecordsWithDifferentMessageTest()
+        public void SpfRecordsWithDifferentMessageRaisesAddedAndRemovedOnlyTest()
         {
             SpfRecords spfRecords =
                 NotifierTestUtil.CreateSpfRecords(messages: new List<Message>
@@ -119,6 +121,8 @@ namespace MailCheck.Spf.Entity.Test.Entity.Notifiers
                 .MustHaveHappenedOnceExactly();
             FakeItEasy.A.CallTo(() => _dispatcher.Dispatch(A<SpfAdvisoryRemoved>._, A<string>._))
                 .MustHaveHappenedOnceExactly();
+            FakeItEasy.A.CallTo(() => _dispatcher.Dispatch(A<SpfAdvisorySustained>._, A<string>._))
+                .MustNotHaveHappened();
 
             FakeItEasy.A.CallTo(() => _dispatcher.Dispatch(A<SpfAdvisoryRemoved>.That.Matches(
                         _ => _.Messages.Count == 1 && _.Messages[0].Text.Equals("world") && _.Messages.Count == 1 &&

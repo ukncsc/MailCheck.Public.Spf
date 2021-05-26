@@ -2,6 +2,7 @@
 using System.Reflection;
 using System.Threading.Tasks;
 using FakeItEasy;
+using MailCheck.Common.Data;
 using MailCheck.Common.Data.Abstractions;
 using MailCheck.Common.TestSupport;
 using MailCheck.Spf.Migration;
@@ -25,10 +26,9 @@ namespace MailCheck.Spf.Scheduler.Test.Dao
 
             TruncateDatabase().Wait();
 
-            IConnectionInfoAsync connectionInfo = A.Fake<IConnectionInfoAsync>();
-            A.CallTo(() => connectionInfo.GetConnectionStringAsync()).Returns(ConnectionString);
+            IDatabase database = A.Fake<IDatabase>();
 
-            _dao = new SpfSchedulerDao(connectionInfo);
+            _dao = new SpfSchedulerDao(database);
         }
 
         [Test]

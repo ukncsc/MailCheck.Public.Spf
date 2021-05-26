@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
 using FakeItEasy;
+using MailCheck.Common.Contracts.Messaging;
 using MailCheck.Common.Messaging.Abstractions;
 using MailCheck.Spf.Contracts.Entity;
-using MailCheck.Spf.Contracts.External;
 using MailCheck.Spf.Contracts.Scheduler;
 using MailCheck.Spf.Scheduler.Config;
 using MailCheck.Spf.Scheduler.Dao;

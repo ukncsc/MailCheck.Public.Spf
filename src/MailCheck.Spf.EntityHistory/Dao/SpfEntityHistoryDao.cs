@@ -46,7 +46,7 @@ namespace MailCheck.Spf.EntityHistory.Dao
 
             await MySqlHelper.ExecuteNonQueryAsync(connectionString,
                 SpfEntityHistoryDaoResouces.InsertSpfEntityHistory,
-                new MySqlParameter("domain", state.Id),
+                new MySqlParameter("domain", state.Id.ToLower()),
                 new MySqlParameter("state", serializedState));
         }
     }

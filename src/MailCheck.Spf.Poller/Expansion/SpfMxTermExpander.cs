@@ -10,7 +10,8 @@ namespace MailCheck.Spf.Poller.Expansion
     public class SpfMxTermExpander : ISpfTermExpanderStrategy
     {
         private readonly IDnsClient _dnsClient;
-        
+        private readonly SpfMacroExpander _macroExpander = new SpfMacroExpander();
+
         public SpfMxTermExpander(IDnsClient dnsClient)
         {
             _dnsClient = dnsClient;
@@ -23,6 +24,11 @@ namespace MailCheck.Spf.Poller.Expansion
             string mxDomain = string.IsNullOrEmpty(mx.DomainSpec.Domain)
                 ? domain
                 : mx.DomainSpec.Domain;
+
+            if (_macroExpander.IsMacro(mxDomain))
+            {
+                return null;
+            }
 
             DnsResult<List<string>> mxRecords = await _dnsClient.GetMxRecords(mxDomain);
 

@@ -150,5 +150,17 @@ namespace MailCheck.Spf.Poller.Test.Expansion
 
             Assert.AreEqual("Too many A records 11 returned for host1. Limit is 10.", mx.AllErrors[0].Message);
         }
+
+        [Test]
+        public async Task NoLookupForMacro()
+        {
+            string macro = "%{o}";
+
+            Mx mx = new Mx("", Qualifier.Pass, new DomainSpec(macro), new DualCidrBlock(new Ip4CidrBlock(32), new Ip6CidrBlock(128)));
+
+            SpfRecords spfRecords = await _spfMxTermExpander.Process("", mx);
+
+            A.CallTo(() => _dnsClient.GetMxRecords(A<string>._)).MustNotHaveHappened();
+        }
     }
 }

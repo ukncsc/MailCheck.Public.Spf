@@ -22,7 +22,7 @@ namespace MailCheck.Spf.Api
 
             if (RunInDevMode())
             {
-                webHostBuilder.UseUrls("http://localhost:5002");
+                webHostBuilder.UseUrls("http://+:5002");
             }
 
             return webHostBuilder;

@@ -40,7 +40,9 @@ namespace MailCheck.Spf.Entity.Entity.Notifiers
                 List<Message> removedMessages = currentRecordsMessages.Except(newRecordsMessages, _messageEqualityComparer).ToList();
 
                 List<Message> addedMessages = newRecordsMessages.Except(currentRecordsMessages, _messageEqualityComparer).ToList();
-                
+
+                List<Message> sustainedMessages = currentRecordsMessages.Intersect(newRecordsMessages, _messageEqualityComparer).ToList();
+
                 if (addedMessages.Any())
                 {
                     _dispatcher.Dispatch(new SpfReferencedAdvisoryAdded(state.Id, addedMessages.Select(x => new AdvisoryMessage(x.MessageType, x.Text)).ToList()), _spfEntityConfig.SnsTopicArn);
@@ -48,7 +50,12 @@ namespace MailCheck.Spf.Entity.Entity.Notifiers
 
                 if (removedMessages.Any())
                 {
-                    _dispatcher.Dispatch(new SpfReferencedAdvisoryRemoved(state.Id, addedMessages.Select(x => new AdvisoryMessage(x.MessageType, x.Text)).ToList()), _spfEntityConfig.SnsTopicArn);
+                    _dispatcher.Dispatch(new SpfReferencedAdvisoryRemoved(state.Id, removedMessages.Select(x => new AdvisoryMessage(x.MessageType, x.Text)).ToList()), _spfEntityConfig.SnsTopicArn);
+                }
+
+                if (sustainedMessages.Any())
+                {
+                    _dispatcher.Dispatch(new SpfReferencedAdvisorySustained(state.Id, sustainedMessages.Select(x => new AdvisoryMessage(x.MessageType, x.Text)).ToList()), _spfEntityConfig.SnsTopicArn);
                 }
             }
         }

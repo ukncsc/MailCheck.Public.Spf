@@ -14,6 +14,7 @@ using Newtonsoft.Json;
 using NUnit.Framework;
 using MailCheck.Common.Data.Util;
 using MySqlHelper = MailCheck.Common.Data.Util.MySqlHelper;
+using Microsoft.Extensions.Logging;
 
 namespace MailCheck.Spf.Entity.Test.Dao
 {
@@ -32,7 +33,9 @@ namespace MailCheck.Spf.Entity.Test.Dao
             IConnectionInfoAsync connectionInfoAsync = A.Fake<IConnectionInfoAsync>();
             A.CallTo(() => connectionInfoAsync.GetConnectionStringAsync()).Returns(ConnectionString);
 
-            _dao = new SpfEntityDao(connectionInfoAsync);
+            ILogger<SpfEntityDao> logger = A.Fake<ILogger<SpfEntityDao>>();
+
+            _dao = new SpfEntityDao(connectionInfoAsync, logger);
         }
 
         [Test]

@@ -7,6 +7,7 @@ using MailCheck.Spf.Api.Dao;
 using MailCheck.Spf.Api.Domain;
 using MailCheck.Spf.Api.Service;
 using MailCheck.Spf.Contracts.Entity;
+using Microsoft.Extensions.Logging;
 using NUnit.Framework;
 
 namespace MailCheck.Spf.Api.Test.Service
@@ -18,6 +19,7 @@ namespace MailCheck.Spf.Api.Test.Service
         private IMessagePublisher _messagePublisher;
         private ISpfApiDao _dao;
         private ISpfApiConfig _config;
+        private ILogger<SpfService> _log;
 
         [SetUp]
         public void SetUp()
@@ -25,7 +27,8 @@ namespace MailCheck.Spf.Api.Test.Service
             _messagePublisher = A.Fake<IMessagePublisher>();
             _dao = A.Fake<ISpfApiDao>();
             _config = A.Fake<ISpfApiConfig>();
-            _spfService = new SpfService(_messagePublisher, _dao, _config);
+            _log = A.Fake<ILogger<SpfService>>();
+            _spfService = new SpfService(_messagePublisher, _dao, _config, _log);
         }
 
         [Test]

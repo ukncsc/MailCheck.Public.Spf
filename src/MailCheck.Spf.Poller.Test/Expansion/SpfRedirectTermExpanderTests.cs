@@ -62,5 +62,17 @@ namespace MailCheck.Spf.Poller.Test.Expansion
             Assert.That(redirect.AllErrors.Count, Is.EqualTo(1));
             Assert.AreEqual("Failed SPF record query for domain with error Error", redirect.AllErrors[0].Message);
         }
+
+        [Test]
+        public async Task NoLookupForMacro()
+        {
+            string macro = "%{o}";
+
+            Redirect redirect = new Redirect("", new DomainSpec(macro));
+
+            SpfRecords spfRecords = await _spfRedirectTermExpander.Process("", redirect);
+
+            A.CallTo(() => _dnsClient.GetMxRecords(A<string>._)).MustNotHaveHappened();
+        }
     }
 }

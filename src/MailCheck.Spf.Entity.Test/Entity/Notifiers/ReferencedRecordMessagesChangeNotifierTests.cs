@@ -10,6 +10,7 @@ using MailCheck.Spf.Entity.Entity.RecordChanged;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Message = MailCheck.Spf.Contracts.SharedDomain.Message;
 
 namespace MailCheck.Spf.Entity.Test.Entity.Notifiers
@@ -72,7 +73,7 @@ namespace MailCheck.Spf.Entity.Test.Entity.Notifiers
         }
 
         [Test]
-        public void SpfRecordsReferencedWithSameMessageIdAndDifferentMessageTypeDoesNotRaiseANotificationTest()
+        public void SpfRecordsReferencedExistingMessageRaisesSustainedOnlyTest()
         {
             Guid id = Guid.NewGuid();
 
@@ -117,10 +118,13 @@ namespace MailCheck.Spf.Entity.Test.Entity.Notifiers
 
             FakeItEasy.A.CallTo(() => _dispatcher.Dispatch(A<SpfReferencedAdvisoryAdded>._, A<string>._)).MustNotHaveHappened();
             FakeItEasy.A.CallTo(() => _dispatcher.Dispatch(A<SpfReferencedAdvisoryRemoved>._, A<string>._)).MustNotHaveHappened();
+            FakeItEasy.A.CallTo(() => _dispatcher.Dispatch(A<SpfReferencedAdvisorySustained>.That.Matches(x => x.Messages.First().Text == "hello"), A<string>._)).MustHaveHappenedOnceExactly();
+            FakeItEasy.A.CallTo(() => _dispatcher.Dispatch(A<SpfReferencedAdvisorySustained>._, A<string>._))
+                .MustHaveHappenedOnceExactly();
         }
 
         [Test]
-        public void SpfRecordsReferencedWithDifferentMessageTest()
+        public void SpfRecordsReferencedWithDifferentMessageRaisesAddedOnlyTest()
         {
             SpfEntityState state =
                 new SpfEntityState(Id, 1, SpfState.Evaluated, DateTime.Now)
@@ -158,6 +162,9 @@ namespace MailCheck.Spf.Entity.Test.Entity.Notifiers
 
             FakeItEasy.A.CallTo(() => _dispatcher.Dispatch(A<SpfReferencedAdvisoryAdded>._, A<string>._)).MustHaveHappenedOnceExactly();
             FakeItEasy.A.CallTo(() => _dispatcher.Dispatch(A<SpfReferencedAdvisoryRemoved>._, A<string>._)).MustNotHaveHappened();
+            FakeItEasy.A.CallTo(() => _dispatcher.Dispatch(A<SpfReferencedAdvisorySustained>.That.Matches(x => x.Messages.First().Text == "hello"), A<string>._)).MustHaveHappenedOnceExactly();
+            FakeItEasy.A.CallTo(() => _dispatcher.Dispatch(A<SpfReferencedAdvisorySustained>._, A<string>._))
+                .MustHaveHappenedOnceExactly();
 
             FakeItEasy.A.CallTo(() => _dispatcher.Dispatch(A<SpfReferencedAdvisoryAdded>.That.Matches(
                        _ => _.Messages.Count == 1 && _.Messages[0].Text.Equals("hello world") && _.Messages[0].MessageType.ToString().Equals("info")),

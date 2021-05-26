@@ -13,6 +13,7 @@ namespace MailCheck.Spf.Poller.Expansion
 
         private readonly IDnsClient _dnsClient;
         private readonly ISpfRecordsParser _recordsParser;
+        private readonly SpfMacroExpander _macroExpander = new SpfMacroExpander();
 
         public SpfRedirectTermExpander(IDnsClient dnsClient, ISpfRecordsParser recordsParser)
         {
@@ -23,20 +24,26 @@ namespace MailCheck.Spf.Poller.Expansion
         public async Task<SpfRecords> Process(string domain, Term term)
         {
             Redirect redirect = term as Redirect;
+            string redirectDomain = redirect.DomainSpec.Domain;
 
-            DnsResult<List<List<string>>> spfDnsRecords = await _dnsClient.GetSpfRecords(redirect.DomainSpec.Domain);
+            if (_macroExpander.IsMacro(redirectDomain))
+            {
+                return null;
+            }
+
+            DnsResult<List<List<string>>> spfDnsRecords = await _dnsClient.GetSpfRecords(redirectDomain);
 
             if (spfDnsRecords.IsErrored)
             {
-                string message = string.Format(SpfExpansionResource.FailedSpfRecordQueryErrorMessage, redirect.DomainSpec.Domain, spfDnsRecords.Error);
-                string markdown = string.Format(SpfExpansionMarkdownResource.FailedSpfRecordQueryErrorMessage, redirect.DomainSpec.Domain, spfDnsRecords.Error);
+                string message = string.Format(SpfExpansionResource.FailedSpfRecordQueryErrorMessage, redirectDomain, spfDnsRecords.Error);
+                string markdown = string.Format(SpfExpansionMarkdownResource.FailedSpfRecordQueryErrorMessage, redirectDomain, spfDnsRecords.Error);
 
                 term.AddError(new Error(Id, ErrorType.Error, message, markdown));
 
                 return null;
             }
 
-            redirect.Records = await _recordsParser.Parse(redirect.DomainSpec.Domain, spfDnsRecords.Value, spfDnsRecords.MessageSize);
+            redirect.Records = await _recordsParser.Parse(redirectDomain, spfDnsRecords.Value, spfDnsRecords.MessageSize);
 
             return redirect.Records;
         }

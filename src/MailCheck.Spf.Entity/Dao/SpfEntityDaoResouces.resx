@@ -119,7 +119,7 @@
   </resheader>
   <data name="DeleteSpfEntity" xml:space="preserve">
     <value>DELETE FROM spf_entity
-WHERE LOWER(id)= LOWER(@domain);</value>
+WHERE id= @domain;</value>
   </data>
   <data name="InsertSpfEntity" xml:space="preserve">
     <value>INSERT INTO `spf_entity`
@@ -127,7 +127,7 @@ WHERE LOWER(id)= LOWER(@domain);</value>
 `version`,
 `state`)
 VALUES
-(LOWER(@domain),
+(@domain,
 @version,
 @state)
 ON DUPLICATE KEY UPDATE 

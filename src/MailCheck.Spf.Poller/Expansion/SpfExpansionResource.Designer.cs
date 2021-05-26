@@ -19,7 +19,7 @@ namespace MailCheck.Spf.Poller.Expansion {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class SpfExpansionResource {
@@ -84,6 +84,15 @@ namespace MailCheck.Spf.Poller.Expansion {
         public static string FailedSpfRecordQueryErrorMessage {
             get {
                 return ResourceManager.GetString("FailedSpfRecordQueryErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your SPF record includes a circular reference to itself, and so Mail Check is unable to expand your SPF record. This could also cause issues for any email service that checks your SPF record.
+        /// </summary>
+        public static string RecursionDetectedErrorMessage {
+            get {
+                return ResourceManager.GetString("RecursionDetectedErrorMessage", resourceCulture);
             }
         }
         
