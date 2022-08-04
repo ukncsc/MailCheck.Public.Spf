@@ -48,7 +48,7 @@ namespace MailCheck.Spf.Entity.Test.Entity.DomainStatus
 
         private Message CreateMessage(MessageType messageType)
         {
-            return new Message(Guid.Empty, null, messageType, "", "");
+            return new Message(Guid.Empty, "mailcheck.spf.test", null, messageType, "", "");
         }
     }
 }

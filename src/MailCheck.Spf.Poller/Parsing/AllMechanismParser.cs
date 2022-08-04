@@ -17,7 +17,7 @@ namespace MailCheck.Spf.Poller.Parsing
                 string errorMessage = string.Format(SpfParserResource.InvalidValueErrorMessage, Mechanism, mechanism);
                 string markdown = string.Format(SpfParserMarkdownResource.InvalidValueErrorMessage, Mechanism, mechanism);
 
-                all.AddError(new Error(Id, ErrorType.Error, errorMessage, markdown));
+                all.AddError(new Error(Id, "mailcheck.spf.invalidAllValueError", ErrorType.Error, errorMessage, markdown));
             }
 
             return all;

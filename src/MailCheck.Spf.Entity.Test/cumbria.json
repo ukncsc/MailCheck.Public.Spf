@@ -1725,7 +1725,7 @@
             "id": "6ba5a47e-d212-4131-ac74-38f298a57894",
             "source": "SpfPoller",
             "messageType": "error",
-            "text": "The SPF specification limits the amount of DNS lookups for a record to 10. This record currently has at least 20 which will likely cause SPF failures.",
+            "text": "The DNS lookup limit of 10 has been exceeded. This domain has at least 20 which will likely cause SPF failures.",
             "markdown": "You may consider:\n\n- moving some senders onto separate subdomains to split your senders.\n- using a different mechanism instead of mx or a"
         }
     ],

@@ -19,7 +19,7 @@ namespace MailCheck.Spf.Poller.Rules.Record
                 string errorMessage = string.Format(SpfRulesResource.DontUsePtrMechanismErrorMessage, spfRecords.Domain);
                 string markdown = string.Format(SpfRulesMarkdownResource.DontUsePtrMechanismErrorMessage, spfRecords.Domain);
 
-                errors.Add(new Error(Id, ErrorType.Error, errorMessage, markdown));
+                errors.Add(new Error(Id, "mailcheck.spf.dontUsePtrMechanism", ErrorType.Error, errorMessage, markdown));
             }
 
             return Task.FromResult(errors);

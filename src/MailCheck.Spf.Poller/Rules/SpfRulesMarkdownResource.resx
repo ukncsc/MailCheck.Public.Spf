@@ -135,7 +135,12 @@ The result can only be trusted if the forward and reverse results match.
     <value />
   </data>
   <data name="OnlyOneSpfRecordErrorMessage" xml:space="preserve">
-    <value />
+    <value>Creating an SPF record is an important aspect in establishing anti-spoofing controls for your domain.
+Information about how to set up an SPF record can be found in our guidance here:
+[Creating an SPF Record](https://www.ncsc.gov.uk/collection/email-security-and-anti-spoofing/create-and-iterate-an-spf-record)
+
+If this domain is not used by your organisation to send email, then you should still protect it from being spoofed following our guidance here:
+[Protecting Parked Domains](https://www.ncsc.gov.uk/blog-post/protecting-parked-domains)</value>
   </data>
   <data name="RedirectDoesntOccurMoreThanOnceErrorMessage" xml:space="preserve">
     <value />
@@ -194,7 +199,7 @@ Mail Check expands your SPF record at the bottom of this page to help you unders
 
 #### Further information
 
-[https://www.ncsc.gov.uk/collection/email-security-and-anti-spoofing/create-and-iterate-an-spf-record](https://www.ncsc.gov.uk/collection/email-security-and-anti-spoofing/create-and-iterate-an-spf-record)
+[Create and iterate an SPF record](https://www.ncsc.gov.uk/collection/email-security-and-anti-spoofing/create-and-iterate-an-spf-record)
     </value>
   </data>
    <data name="CloseTo10QueryLookupsErrorMessage" xml:space="preserve">
@@ -232,7 +237,7 @@ Mail Check expands your SPF record at the bottom of this page to help you unders
 
 #### Further information
 
-[https://www.ncsc.gov.uk/collection/email-security-and-anti-spoofing/create-and-iterate-an-spf-record](https://www.ncsc.gov.uk/collection/email-security-and-anti-spoofing/create-and-iterate-an-spf-record)
+[Create and iterate an SPF record](https://www.ncsc.gov.uk/collection/email-security-and-anti-spoofing/create-and-iterate-an-spf-record)
     </value>
   </data>
   <data name="QueryLookupsInfoMessage" xml:space="preserve">
@@ -270,7 +275,7 @@ Mail Check expands your SPF record at the bottom of this page to help you unders
 
 #### Further information
 
-[https://www.ncsc.gov.uk/collection/email-security-and-anti-spoofing/create-and-iterate-an-spf-record](https://www.ncsc.gov.uk/collection/email-security-and-anti-spoofing/create-and-iterate-an-spf-record)
+[Create and iterate an SPF record](https://www.ncsc.gov.uk/collection/email-security-and-anti-spoofing/create-and-iterate-an-spf-record)
     </value>
   </data>
 

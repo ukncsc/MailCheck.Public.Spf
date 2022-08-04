@@ -183,17 +183,17 @@ namespace MailCheck.Spf.Entity.Test.Entity.DomainStatus
 
         private Message CreateInfoMessage()
         {
-            return new Message(Guid.Empty, "", MessageType.info, "", "");
+            return new Message(Guid.Empty, "mailcheck.spf.test", "", MessageType.info, "", "");
         }
 
         private Message CreateWarningMessage()
         {
-            return new Message(Guid.Empty, "", MessageType.warning, "", "");
+            return new Message(Guid.Empty, "mailcheck.spf.test", "", MessageType.warning, "", "");
         }
 
         private Message CreateErrorMessage()
         {
-            return new Message(Guid.Empty, "", MessageType.error, "", "");
+            return new Message(Guid.Empty, "mailcheck.spf.test", "", MessageType.error, "", "");
         }
     }
 }

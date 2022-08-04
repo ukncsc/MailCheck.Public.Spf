@@ -18,7 +18,7 @@ namespace MailCheck.Spf.Poller.Rules.Record
                 string errorMessage = string.Format(SpfRulesResource.RedirectModifierAndAllMechanismNotValidErrorMessage, spfRecord.Domain);
                 string markdown = string.Format(SpfRulesMarkdownResource.RedirectModifierAndAllMechanismNotValidErrorMessage, spfRecord.Domain);
 
-                errors.Add(new Error(Id, ErrorType.Error, errorMessage, markdown));
+                errors.Add(new Error(Id, "mailcheck.spf.redirectModifierAndAllMechanismNotValid", ErrorType.Error, errorMessage, markdown));
             }
 
             return Task.FromResult(errors);

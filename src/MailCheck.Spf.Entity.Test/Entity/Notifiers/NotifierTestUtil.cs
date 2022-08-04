@@ -23,7 +23,7 @@ namespace MailCheck.Spf.Entity.Test.Entity.Notifiers
                         {
                             new All(Qualifier.Fail, "", false, false)
                         },
-                        messages ?? new List<Message> {new Message(Guid.Empty, "SPF", MessageType.info, "hello", "testMarkdown")},
+                        messages ?? new List<Message> {new Message(Guid.Empty, "mailcheck.spf.test", "SPF", MessageType.info, "hello", "testMarkdown")},
                         false)
                 }, 100,
                 new List<Message>());

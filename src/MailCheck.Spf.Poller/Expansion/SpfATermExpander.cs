@@ -39,7 +39,7 @@ namespace MailCheck.Spf.Poller.Expansion
                 string message = string.Format(SpfExpansionResource.FailedARecordQueryErrorMessage, aDomain, ips.Error);
                 string markdown = string.Format(SpfExpansionMarkdownResource.FailedARecordQueryErrorMessage, aDomain, ips.Error);
 
-                a.AddError(new Error(Id, ErrorType.Error, message, markdown));
+                a.AddError(new Error(Id, "mailcheck.spf.aDnsClientError", ErrorType.Error, message, markdown));
             }
             else
             {

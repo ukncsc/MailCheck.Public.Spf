@@ -20,7 +20,7 @@ namespace MailCheck.Spf.Poller.Rules.Record
                 string errorMessage = string.Format(SpfRulesResource.ModifiersOccurAfterMechanismsErrorMessage, spfRecord.Domain);
                 string markdown = string.Format(SpfRulesMarkdownResource.ModifiersOccurAfterMechanismsErrorMessage, spfRecord.Domain);
 
-                errors.Add(new Error(Id, ErrorType.Error, errorMessage, markdown));
+                errors.Add(new Error(Id, "mailcheck.spf.modifiersOccurAfterMechanisms", ErrorType.Error, errorMessage, markdown));
             }
 
             return Task.FromResult(errors);

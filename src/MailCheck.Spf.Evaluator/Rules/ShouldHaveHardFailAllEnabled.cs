@@ -38,7 +38,7 @@ namespace MailCheck.Spf.Evaluator.Rules
                 string errorMessage = string.Format(SpfRulesResource.ShouldHaveHardFailAllEnabledErrorMessage, failExplanation, softFailExplanation, all.Value, allExplanation);
                 string markDown = string.Format(SpfRulesMarkDownResource.ShouldHaveHardFailAllEnabledErrorMessage, failExplanation, softFailExplanation, all.Value, allExplanation);
 
-                messages.Add(new Message(Id, MessageSources.SpfEvaluator, MessageType.warning, errorMessage, markDown));
+                messages.Add(new Message(Id, "mailcheck.spf.shouldHaveHardFailAllEnabled", MessageSources.SpfEvaluator, MessageType.warning, errorMessage, markDown));
             }
 
             return Task.FromResult(messages);

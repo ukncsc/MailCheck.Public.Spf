@@ -106,15 +106,15 @@ namespace MailCheck.Spf.Entity.Test.Entity
                 new List<Term>
                 {
                     new Redirect("spf1", "abc.com",
-                        CreateSpfRecords(new List<Message> {new Message(Guid.Empty, "SPF", MessageType.info, "hello", "markdown")}),
+                        CreateSpfRecords(new List<Message> {new Message(Guid.Empty, "mailcheck.spf.test", "SPF", MessageType.info, "hello", "markdown")}),
                         false),
                 };
 
             SpfRecords spfRecords = CreateSpfRecords(terms: terms,
-                messages: new List<Message> {new Message(Guid.Empty, "SPF", MessageType.info, "hello", "markdown")});
+                messages: new List<Message> {new Message(Guid.Empty, "mailcheck.spf.test", "SPF", MessageType.info, "hello", "markdown")});
 
             spfRecords.Records[0].Messages
-                .Add(new Message(Guid.Empty, MessageSources.SpfEvaluator, MessageType.error, "EvaluationError", "markdown"));
+                .Add(new Message(Guid.Empty, "mailcheck.spf.test", MessageSources.SpfEvaluator, MessageType.error, "EvaluationError", "markdown"));
             spfRecords.Records[0].Terms[0].Explanation = "Explanation";
 
             SpfRecordsEvaluated spfRecordsEvaluated = new SpfRecordsEvaluated(Id, spfRecords, 1, TimeSpan.MinValue, new List<Message>(), DateTime.UtcNow);

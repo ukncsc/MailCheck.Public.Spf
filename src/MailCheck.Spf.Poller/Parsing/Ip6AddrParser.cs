@@ -24,7 +24,7 @@ namespace MailCheck.Spf.Poller.Parsing
                 {
                     string errorMessage = string.Format(SpfParserResource.InvalidValueErrorMessage, "ipv6 address", ipAddressString);
                     string markdown = string.Format(SpfParserMarkdownResource.InvalidValueErrorMessage, "ipv6 address", ipAddressString);
-                    ip6Addr.AddError(new Error(Id, ErrorType.Error, errorMessage, markdown));
+                    ip6Addr.AddError(new Error(Id, "mailcheck.spf.ipv6AddrInvalid", ErrorType.Error, errorMessage, markdown));
                 }
             }
             else
@@ -32,7 +32,7 @@ namespace MailCheck.Spf.Poller.Parsing
                 string errorMessage = string.Format(SpfParserResource.InvalidValueErrorMessage, "ip address", ipAddressString);
                 string markdown = string.Format(SpfParserMarkdownResource.InvalidValueErrorMessage, "ip address", ipAddressString);
 
-                ip6Addr.AddError(new Error(Id, ErrorType.Error, errorMessage, markdown));
+                ip6Addr.AddError(new Error(Id, "mailcheck.spf.ipv6AddrInvalid", ErrorType.Error, errorMessage, markdown));
             }
             return ip6Addr;
         }

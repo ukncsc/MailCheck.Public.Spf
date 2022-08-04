@@ -17,6 +17,10 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
 using System.Collections.Generic;
 using MailCheck.Spf.Entity.Entity.DomainStatus;
+using MailCheck.Common.Processors.Notifiers;
+using FindingsChangedNotifier = MailCheck.Common.Processors.Notifiers.FindingsChangedNotifier;
+using LocalFindingsChangedNotifier = MailCheck.Spf.Entity.Entity.Notifiers.FindingsChangedNotifier;
+using MessageEqualityComparer = MailCheck.Spf.Entity.Entity.Notifiers.MessageEqualityComparer;
 
 namespace MailCheck.Spf.Entity.StartUp
 {
@@ -37,6 +41,8 @@ namespace MailCheck.Spf.Entity.StartUp
                 .AddTransient<IChangeNotifier, ReferencedRecordChangeNotifier>()
                 .AddTransient<IChangeNotifier, RecordMessagesChangeNotifier>()
                 .AddTransient<IChangeNotifier, ReferencedRecordMessagesChangeNotifier>()
+                .AddTransient<IChangeNotifier, LocalFindingsChangedNotifier>()
+                .AddTransient<IFindingsChangedNotifier, FindingsChangedNotifier>()
                 .AddTransient<IChangeNotifiersComposite, ChangeNotifiersComposite>()
                 .AddTransient<ISpfEntityDao, SpfEntityDao>()
                 .AddTransient<ISpfEntityConfig, SpfEntityConfig>()

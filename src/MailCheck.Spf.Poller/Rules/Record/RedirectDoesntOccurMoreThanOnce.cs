@@ -19,7 +19,7 @@ namespace MailCheck.Spf.Poller.Rules.Record
                 string errorMessage = string.Format(SpfRulesResource.RedirectDoesntOccurMoreThanOnceErrorMessage, spfRecord.Domain, redirectCount);
                 string markdown = string.Format(SpfRulesMarkdownResource.RedirectDoesntOccurMoreThanOnceErrorMessage, spfRecord.Domain, redirectCount);
 
-                errors.Add(new Error(Id, ErrorType.Error, errorMessage, markdown));
+                errors.Add(new Error(Id, "mailcheck.spf.redirectDoesntOccurMoreThanOnce", ErrorType.Error, errorMessage, markdown));
             }
 
             return Task.FromResult(errors);

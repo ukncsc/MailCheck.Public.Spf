@@ -23,7 +23,7 @@ namespace MailCheck.Spf.Poller.Parsing
                 string errorMessage = string.Format(SpfParserResource.InvalidValueErrorMessage, "SPF version", version);
                 string markdown = string.Format(SpfParserMarkdownResource.InvalidValueErrorMessage, "SPF version", version);
 
-                version.AddError(new Error(Id, ErrorType.Error, errorMessage, markdown));
+                version.AddError(new Error(Id, "mailcheck.spf.invalidSpfVersion", ErrorType.Error, errorMessage, markdown));
             }
             return version;
         }

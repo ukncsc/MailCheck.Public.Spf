@@ -53,7 +53,7 @@ namespace MailCheck.Spf.Poller.Parsing
                     string message = string.Format(SpfParserResource.UnknownQualifierErrorMessage, qualifierToken);
                     string markdown = string.Format(SpfParserMarkdownResource.UnknownQualifierErrorMessage, qualifierToken);
 
-                    term.AddError(new Error(Id, ErrorType.Error, message, markdown));
+                    term.AddError(new Error(Id, "mailcheck.spf.unknownMechanism", ErrorType.Error, message, markdown));
                 }
 
                 return true;

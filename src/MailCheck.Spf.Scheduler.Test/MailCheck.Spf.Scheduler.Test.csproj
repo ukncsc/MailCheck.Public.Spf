@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>netcoreapp2.1</TargetFramework>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="FakeItEasy" Version="5.0.1" />
-        <PackageReference Include="MailCheck.Common.Contracts" Version="5.1.0" />
-        <PackageReference Include="MailCheck.Common.TestSupport" Version="2.6.0.58" />
+        <PackageReference Include="MailCheck.Common.Contracts" Version="12.0.0" />
+        <PackageReference Include="MailCheck.Common.TestSupport" Version="12.0.0" />
         <PackageReference Include="NUnit3TestAdapter" Version="3.12.0" />
         <PackageReference Include="NUnit" Version="3.11.0" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
-        <PackageReference Include="AWSSDK.Lambda" Version="3.3.19.17" />
-        <PackageReference Include="Amazon.Lambda.Core" Version="1.0.0" />
+        <PackageReference Include="AWSSDK.Lambda" Version="3.7.13.4" />
+        <PackageReference Include="Amazon.Lambda.Core" Version="2.0.0" />
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\MailCheck.Spf.Scheduler\MailCheck.Spf.Scheduler.csproj" />

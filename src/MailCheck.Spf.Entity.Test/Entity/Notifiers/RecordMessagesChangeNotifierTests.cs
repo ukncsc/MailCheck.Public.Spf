@@ -66,7 +66,7 @@ namespace MailCheck.Spf.Entity.Test.Entity.Notifiers
             SpfRecords spfRecords =
                 NotifierTestUtil.CreateSpfRecords(messages: new List<Message>
                 {
-                    new Message(id, "SPF", MessageType.warning, "hello", "markdown")
+                    new Message(id, "mailcheck.spf.test", "SPF", MessageType.warning, "hello", "markdown")
                 });
 
             SpfEntityState state =
@@ -75,7 +75,7 @@ namespace MailCheck.Spf.Entity.Test.Entity.Notifiers
                     SpfRecords =
                         NotifierTestUtil.CreateSpfRecords(messages: new List<Message>
                         {
-                            new Message(id, "SPF", MessageType.error, "world", "markdown")
+                            new Message(id, "mailcheck.spf.test", "SPF", MessageType.error, "world", "markdown")
                         })
                 };
             SpfRecordsEvaluated message = new SpfRecordsEvaluated(Id, spfRecords, 1, TimeSpan.MinValue, new List<Message>(), DateTime.UtcNow);
@@ -99,7 +99,7 @@ namespace MailCheck.Spf.Entity.Test.Entity.Notifiers
             SpfRecords spfRecords =
                 NotifierTestUtil.CreateSpfRecords(messages: new List<Message>
                 {
-                    new Message(Guid.NewGuid(), "SPF", MessageType.info, "hello", "markdown")
+                    new Message(Guid.NewGuid(), "mailcheck.spf.test", "SPF", MessageType.info, "hello", "markdown")
                 });
 
             SpfEntityState state =
@@ -108,7 +108,7 @@ namespace MailCheck.Spf.Entity.Test.Entity.Notifiers
                     SpfRecords =
                         NotifierTestUtil.CreateSpfRecords(messages: new List<Message>
                         {
-                            new Message(Guid.NewGuid(), "SPF", MessageType.error, "world", "markdown")
+                            new Message(Guid.NewGuid(), "mailcheck.spf.test", "SPF", MessageType.error, "world", "markdown")
                         })
                 };
             SpfRecordsEvaluated message = new SpfRecordsEvaluated(Id, spfRecords, 1, TimeSpan.MinValue, new List<Message>(), DateTime.UtcNow);

@@ -30,7 +30,7 @@ namespace MailCheck.Spf.Poller.Parsing
                     string markdown = string.Format(SpfParserMarkdownResource.NoValueErrorMessage, "domain");
                     Guid id = Guid.Parse("5E60D21F-A543-4263-9525-FE6E2E330E52");
 
-                    domainSpec.AddError(new Error(id, ErrorType.Error, message, markdown));
+                    domainSpec.AddError(new Error(id, "mailcheck.spf.noValueDomainSpec", ErrorType.Error, message, markdown));
                 }
             }
             else if (!_domainRegex.IsMatch(domainSpecString) && !_macroRegex.IsMatch(domainSpecString))
@@ -39,7 +39,7 @@ namespace MailCheck.Spf.Poller.Parsing
                 string markdown = string.Format(SpfParserMarkdownResource.InvalidValueErrorMessage, "domain or macro", domainSpecString);
                 Guid id = Guid.Parse("38A767C4-B795-4B57-8779-5D535B4347BB");
 
-                domainSpec.AddError(new Error(id, ErrorType.Error, message, markdown));
+                domainSpec.AddError(new Error(id, "mailcheck.spf.invalidValueDomainSpec", ErrorType.Error, message, markdown));
             }
 
             return domainSpec;

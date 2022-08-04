@@ -5,6 +5,7 @@ using System.Runtime.InteropServices;
 using Amazon.SimpleNotificationService;
 using DnsClient;
 using MailCheck.Common.Messaging.Abstractions;
+using MailCheck.Common.Util;
 using MailCheck.Dkim.Poller.Dns;
 using MailCheck.Spf.Contracts.Entity;
 using MailCheck.Spf.Contracts.SharedDomain.Serialization;
@@ -19,6 +20,7 @@ using MailCheck.Spf.Poller.Rules.PollResult;
 using MailCheck.Spf.Poller.Rules.Record;
 using MailCheck.Spf.Poller.Rules.Records;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
@@ -47,6 +49,7 @@ namespace MailCheck.Spf.Poller.StartUp
                 .AddTransient<SpfProcessor>()
                 .AddSingleton(CreateLookupClient)
                 .AddTransient<ISpfRecordsParser, SpfRecordsParser>()
+                .AddTransient<IAuditTrailParser, AuditTrailParser>()
                 .AddTransient<IDnsClient, Dns.DnsClient>()
                 .AddTransient<IDnsNameServerProvider, LinuxDnsNameServerProvider>()
                 .AddTransient<IAmazonSimpleNotificationService, AmazonSimpleNotificationServiceClient>()
@@ -90,7 +93,6 @@ namespace MailCheck.Spf.Poller.StartUp
                 .AddTransient<IEvaluator<DomainSpfRecord>, Evaluator<DomainSpfRecord>>()
                 .AddTransient<IRule<DomainSpfRecord>, AllMustBeLastMechanism>()
                 .AddTransient<IRule<DomainSpfRecord>, DontUsePtrMechanism>()
-                .AddTransient<IRule<DomainSpfRecord>, AdviseAgainstMxMechanism>()
                 .AddTransient<IRule<DomainSpfRecord>, ExplanationDoesntOccurMoreThanOnce>()
                 .AddTransient<IRule<DomainSpfRecord>, RedirectDoesntOccurMoreThanOnce>()
                 .AddTransient<IRule<DomainSpfRecord>, ModifiersOccurAfterMechanisms>()
@@ -101,7 +103,7 @@ namespace MailCheck.Spf.Poller.StartUp
 
         private static ILookupClient CreateLookupClient(IServiceProvider provider)
         {
-            return RuntimeInformation.IsOSPlatform(OSPlatform.Windows)
+            LookupClient lookupClient =  RuntimeInformation.IsOSPlatform(OSPlatform.Windows)
                 ? new LookupClient(NameServer.GooglePublicDns, NameServer.GooglePublicDnsIPv6)
                 {
                     Timeout = provider.GetRequiredService<ISpfPollerConfig>().DnsRecordLookupTimeout
@@ -111,11 +113,15 @@ namespace MailCheck.Spf.Poller.StartUp
                     .Select(_ => new IPEndPoint(_, 53)).ToArray())
                 {
                     ContinueOnEmptyResponse = false,
+                    ContinueOnDnsError = false,
                     UseCache = false,
                     UseTcpOnly = true,
                     EnableAuditTrail = true,
+                    Retries = 0,
                     Timeout = provider.GetRequiredService<ISpfPollerConfig>().DnsRecordLookupTimeout
                 });
+
+            return new AuditTrailLoggingLookupClientWrapper(lookupClient, provider.GetService<IAuditTrailParser>(), provider.GetService<ILogger<AuditTrailLoggingLookupClientWrapper>>());
         }
     }
 }

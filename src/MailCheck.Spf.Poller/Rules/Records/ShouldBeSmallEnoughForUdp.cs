@@ -18,7 +18,7 @@ namespace MailCheck.Spf.Poller.Rules.Records
                 string errorMessage = string.Format(SpfRulesResource.ShouldBeSmallEnoughForUdp, domainSpfRecords.Domain, domainSpfRecords.SpfRecords.MessageSize);
                 string markdown = string.Format(SpfRulesMarkdownResource.ShouldBeSmallEnoughForUdp, domainSpfRecords.Domain);
 
-                errors.Add(new Error(Id, ErrorType.Info, errorMessage, markdown));
+                errors.Add(new Error(Id, "mailcheck.spf.shouldBeSmallEnoughForUdp", ErrorType.Info, errorMessage, markdown));
             }
 
             return Task.FromResult(errors);

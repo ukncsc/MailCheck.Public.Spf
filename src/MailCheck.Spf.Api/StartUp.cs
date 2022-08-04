@@ -14,6 +14,7 @@ using MailCheck.Common.Data.Abstractions;
 using MailCheck.Common.Data.Implementations;
 using MailCheck.Common.Environment.Abstractions;
 using MailCheck.Common.Environment.Implementations;
+using MailCheck.Common.Logging;
 using MailCheck.Common.Messaging.Abstractions;
 using MailCheck.Common.Messaging.Sns;
 using MailCheck.Common.SSM;
@@ -83,16 +84,16 @@ namespace MailCheck.Spf.Api
                 .AddTransient<ISpfService, SpfService>()
                 .AddTransient<IAmazonSimpleNotificationService, AmazonSimpleNotificationServiceClient>()
                 .AddAudit("Spf-Api")
-                .AddLogging()
+                .AddSerilogLogging()
                 .AddMailCheckAuthenticationClaimsPrincipleClient()
-                .AddMvc(config =>
+                .AddControllers(config =>
                 {
                     AuthorizationPolicy policy = new AuthorizationPolicyBuilder()
                         .RequireAuthenticatedUser()
                         .Build();
                     config.Filters.Add(new AuthorizeFilter(policy));
-                })
-                .AddJsonOptions(options =>
+                }).SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_3_0)
+                .AddNewtonsoftJson(options =>
                 {
                     options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Serialize;
                     options.SerializerSettings.Converters.Add(new StringEnumConverter());
@@ -106,7 +107,7 @@ namespace MailCheck.Spf.Api
 
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (RunInDevMode())
             {
@@ -114,14 +115,16 @@ namespace MailCheck.Spf.Api
             }
 
             app.UseMiddleware<AuditTimerMiddleware>()
-               .UseMiddleware<OidcHeadersToClaimsMiddleware>()
-               .UseMiddleware<ApiKeyToClaimsMiddleware>()
-               .UseAuthentication()
-               .UseMiddleware<AuditLoggingMiddleware>()
-               .UseMiddleware<UnhandledExceptionMiddleware>()
-               .UseMvc();
-
-  
+                .UseMiddleware<OidcHeadersToClaimsMiddleware>()
+                .UseMiddleware<ApiKeyToClaimsMiddleware>()
+                .UseAuthentication()
+                .UseMiddleware<AuditLoggingMiddleware>()
+                .UseMiddleware<UnhandledExceptionMiddleware>()
+                .UseRouting()
+                .UseEndpoints(endpoints => {
+                    endpoints.MapDefaultControllerRoute();
+                    endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
+                });
         }
 
         private bool RunInDevMode()
@@ -134,7 +137,7 @@ namespace MailCheck.Spf.Api
         {
             options.AddPolicy(CorsPolicyName, builder =>
                 builder
-                    .AllowAnyOrigin()
+                    .SetIsOriginAllowed(_ => true)
                     .AllowAnyMethod()
                     .AllowAnyHeader()
                     .AllowCredentials());

@@ -55,7 +55,7 @@ namespace MailCheck.Spf.Poller
                 
                 _log.LogError($"{message} {Environment.NewLine} Audit Trail: {spfDnsRecords.AuditTrail}");
                 
-                return new SpfPollResult(new Error(Id, ErrorType.Error, message, markdown));
+                return new SpfPollResult(new Error(Id, "mailcheck.spf.failedSpfRecordQuery", ErrorType.Error, message, markdown));
             }
 
             if (spfDnsRecords.Value.Count == 0 ||

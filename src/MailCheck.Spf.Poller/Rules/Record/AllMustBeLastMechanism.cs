@@ -22,7 +22,7 @@ namespace MailCheck.Spf.Poller.Rules.Record
                 string errorMessage = string.Format(SpfRulesResource.AllMustBeLastMechanismErrorMessage, spfRecords.Domain, lastMechanism.Value);
                 string markdown = string.Format(SpfRulesMarkdownResource.AllMustBeLastMechanismErrorMessage, spfRecords.Domain, lastMechanism.Value);
 
-                errors.Add(new Error(Id, ErrorType.Error, errorMessage, markdown));
+                errors.Add(new Error(Id, "mailcheck.spf.allMustBeLastMechanism", ErrorType.Error, errorMessage, markdown));
             }
 
             return Task.FromResult(errors);

@@ -4,9 +4,10 @@ namespace MailCheck.Spf.Poller.Domain
 {
     public class Error
     {
-        public Error(Guid id, ErrorType errorType, string message, string markdown)
+        public Error(Guid id, string name, ErrorType errorType, string message, string markdown)
         {
             Id = id;
+            Name = name;
             ErrorType = errorType;
             Message = message;
             Markdown = markdown;
@@ -17,6 +18,7 @@ namespace MailCheck.Spf.Poller.Domain
 
         public string Message { get; }
         public string Markdown { get; }
+        public string Name { get; }
 
         public override string ToString()
         {

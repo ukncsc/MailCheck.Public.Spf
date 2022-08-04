@@ -37,7 +37,7 @@ namespace MailCheck.Spf.Poller.Parsing
 
             UnknownTerm unknownTerm = new UnknownTerm(stringTerm);
             string errorMessage = string.Format(SpfParserResource.UnknownTermErrorMessage, stringTerm);
-            unknownTerm.AddError(new Error(Id, ErrorType.Error, errorMessage, SpfParserMarkdownResource.UnknownTermErrorMessage));
+            unknownTerm.AddError(new Error(Id, "mailcheck.spf.unknownTermError", ErrorType.Error, errorMessage, SpfParserMarkdownResource.UnknownTermErrorMessage));
             return unknownTerm;
         }
     }

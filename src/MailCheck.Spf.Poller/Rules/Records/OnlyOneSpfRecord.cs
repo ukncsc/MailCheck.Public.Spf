@@ -18,7 +18,7 @@ namespace MailCheck.Spf.Poller.Rules.Records
                 string errorMessage = string.Format(SpfRulesResource.OnlyOneSpfRecordErrorMessage, domainSpfRecords.Domain, recordCount);
                 string markdown = string.Format(SpfRulesMarkdownResource.OnlyOneSpfRecordErrorMessage, domainSpfRecords.Domain, recordCount);
 
-                errors.Add(new Error(Id, ErrorType.Warning, errorMessage, markdown));
+                errors.Add(new Error(Id, "mailcheck.spf.onlyOneSpfRecord", ErrorType.Warning, errorMessage, markdown));
             }
 
             return Task.FromResult(errors);

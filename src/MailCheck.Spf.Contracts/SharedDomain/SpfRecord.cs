@@ -28,7 +28,7 @@ namespace MailCheck.Spf.Contracts.SharedDomain
 
         public List<Term> Terms { get; }
 
-        public List<Message> Messages { get; }
+        public List<Message> Messages { get; set; }
 
         public bool Equals(SpfRecord other)
         {

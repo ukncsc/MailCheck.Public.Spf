@@ -4,9 +4,10 @@ namespace MailCheck.Spf.Contracts.SharedDomain
 {
     public class Message : IEquatable<Message>
     {
-        public Message(Guid id, string source, MessageType messageType, string text, string markdown)
+        public Message(Guid id, string name, string source, MessageType messageType, string text, string markdown)
         {
             Id = id;
+            Name = name;
             Source = source;
             MessageType = messageType;
             Text = text;
@@ -14,6 +15,7 @@ namespace MailCheck.Spf.Contracts.SharedDomain
         }
 
         public Guid Id { get; }
+        public string Name { get; }
         public string Source { get; }
 
         public MessageType MessageType { get; }

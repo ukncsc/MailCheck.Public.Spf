@@ -38,7 +38,7 @@ namespace MailCheck.Spf.Poller.Expansion
                 string markdown = string.Format(SpfExpansionMarkdownResource.FailedMxRecordQueryErrorMessage, mxDomain, mxRecords.Error);
                 Guid id = Guid.Parse("464F1D16-3945-41D3-9C02-D7B781BCB363");
 
-                mx.AddError(new Error(id, ErrorType.Error, message, markdown));
+                mx.AddError(new Error(id, "mailcheck.spf.failedMxRecordQuery", ErrorType.Error, message, markdown));
             }
             else
             {
@@ -55,7 +55,7 @@ namespace MailCheck.Spf.Poller.Expansion
                         string markdown = string.Format(SpfExpansionMarkdownResource.FailedARecordQueryErrorMessage, mxRecord, ips.Error);
                         Guid id = Guid.Parse("DA9C6FF2-5DD0-4AA0-BE66-2E443C93C9A2");
 
-                        mx.AddError(new Error(id, ErrorType.Error, message, markdown));
+                        mx.AddError(new Error(id, "mailcheck.spf.failedARecordQuery", ErrorType.Error, message, markdown));
                     }
                     else if (ips.Value.Count > 10)
                     {
@@ -65,7 +65,7 @@ namespace MailCheck.Spf.Poller.Expansion
                         string markdown = string.Format(SpfExpansionMarkdownResource.TooManyARecordsErrorMessage, ips.Value.Count, mxRecord);
                         Guid id = Guid.Parse("6ABDDBDE-8147-49C4-A6A2-23DCA683DFDA");
 
-                        mx.AddError(new Error(id, ErrorType.Error, message, markdown));
+                        mx.AddError(new Error(id, "mailcheck.spf.tooManyARecords", ErrorType.Error, message, markdown));
                     }
                     else
                     {

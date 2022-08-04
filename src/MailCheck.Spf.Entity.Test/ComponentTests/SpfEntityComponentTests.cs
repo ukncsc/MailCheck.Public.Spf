@@ -165,7 +165,7 @@ namespace MailCheck.Spf.Entity.Test.ComponentTests
             await SetState(ConnectionString, spfEntityState);
 
             spfRecords.Records[0].Messages
-                .Add(new Contracts.SharedDomain.Message(Guid.Empty, MessageSources.SpfEvaluator, MessageType.error,
+                .Add(new Contracts.SharedDomain.Message(Guid.Empty, "mailcheck.spf.test", MessageSources.SpfEvaluator, MessageType.error,
                     "EvaluationError", "markdown"));
             spfRecords.Records[0].Terms[0].Explanation = "Explanation";
 

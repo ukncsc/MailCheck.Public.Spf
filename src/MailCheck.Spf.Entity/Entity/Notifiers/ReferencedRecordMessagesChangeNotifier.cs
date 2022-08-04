@@ -28,19 +28,11 @@ namespace MailCheck.Spf.Entity.Entity.Notifiers
         {
             if (message is SpfRecordsEvaluated evaluated)
             {
-                List<SpfRecord> currentRecords = await Process(state.SpfRecords);
-                List<SpfRecord> newRecords = await Process(evaluated.Records);
-
-                List<Message> currentRecordsMessages = currentRecords.SelectMany(x => x.Messages).ToList();
-                currentRecordsMessages.AddRange(state.Messages);
-
-                List<Message> newRecordsMessages = newRecords.SelectMany(x => x.Messages).ToList();
-                newRecordsMessages.AddRange(evaluated.Messages);
+                List<Message> currentRecordsMessages = await Process(state.SpfRecords);
+                List<Message> newRecordsMessages = await Process(evaluated.Records);
 
                 List<Message> removedMessages = currentRecordsMessages.Except(newRecordsMessages, _messageEqualityComparer).ToList();
-
                 List<Message> addedMessages = newRecordsMessages.Except(currentRecordsMessages, _messageEqualityComparer).ToList();
-
                 List<Message> sustainedMessages = currentRecordsMessages.Intersect(newRecordsMessages, _messageEqualityComparer).ToList();
 
                 if (addedMessages.Any())
@@ -60,9 +52,9 @@ namespace MailCheck.Spf.Entity.Entity.Notifiers
             }
         }
         
-        private async Task<List<SpfRecord>> Process(SpfRecords spfRecordRoot)
+        private async Task<List<Message>> Process(SpfRecords spfRecordRoot)
         {
-            List<SpfRecord> allSpfRecords = new List<SpfRecord>();
+            List<Message> allMessages = new List<Message>();
 
             Task AddToList(SpfRecords records)
             {
@@ -72,7 +64,8 @@ namespace MailCheck.Spf.Entity.Entity.Notifiers
                     {
                         if (!spfRecordRoot.Records.Contains(spfRecord))
                         {
-                            allSpfRecords.Add(spfRecord);
+                            allMessages.AddRange(records.Messages);
+                            allMessages.AddRange(spfRecord.Messages);
                         }
                     }
                 }
@@ -83,7 +76,7 @@ namespace MailCheck.Spf.Entity.Entity.Notifiers
             SpfRecordsDepthFirstJobProcessor processor = new SpfRecordsDepthFirstJobProcessor();
             await processor.Process(spfRecordRoot, AddToList);
 
-            return allSpfRecords;
+            return allMessages;
         }
     }
 }

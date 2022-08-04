@@ -32,7 +32,7 @@ namespace MailCheck.Spf.Poller.Parsing
             string errorMessage = string.Format(SpfParserResource.InvalidValueErrorMessage, "ipv4 cidr block", $"{cidrBlock}. Value must be in the range 0-32");
             string markdown = string.Format(SpfParserMarkdownResource.InvalidValueErrorMessage, "ipv4 cidr block", $"{cidrBlock}. Value must be in the range 0-32");
 
-            ip4CidrBlock.AddError(new Error(Id, ErrorType.Error, errorMessage, markdown));
+            ip4CidrBlock.AddError(new Error(Id, "mailcheck.spf.ipv4CidrInvalid", ErrorType.Error, errorMessage, markdown));
             return ip4CidrBlock;
         }
     }

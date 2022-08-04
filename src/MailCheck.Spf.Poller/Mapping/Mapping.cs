@@ -218,7 +218,7 @@ namespace MailCheck.Spf.Poller.Mapping
 
         private static Message ToContract(this Error error)
         {
-            return new Message(error.Id, MessageSources.SpfPoller, error.ErrorType.ToContract(), error.Message, error.Markdown);
+            return new Message(error.Id, error.Name, MessageSources.SpfPoller, error.ErrorType.ToContract(), error.Message, error.Markdown);
         }
 
         private static MessageType ToContract(this ErrorType errorType)

@@ -33,7 +33,7 @@ namespace MailCheck.Spf.Poller.Parsing
             string errorMessage = string.Format(SpfParserResource.InvalidValueErrorMessage, "ipv6 cidr block", $"{cidrBlock}. Value must be in the range 0-128");
             string markdown = string.Format(SpfParserMarkdownResource.InvalidValueErrorMessage, "ipv6 cidr block", $"{cidrBlock}. Value must be in the range 0-128");
 
-            ip6CidrBlock.AddError(new Error(Id, ErrorType.Error, errorMessage, markdown));
+            ip6CidrBlock.AddError(new Error(Id, "mailcheck.spf.ipv6CidrInvalid", ErrorType.Error, errorMessage, markdown));
 
             return ip6CidrBlock;
         }

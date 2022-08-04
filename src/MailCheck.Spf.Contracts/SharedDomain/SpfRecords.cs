@@ -18,7 +18,7 @@ namespace MailCheck.Spf.Contracts.SharedDomain
 
         public int PayloadSizeBytes { get; }
 
-        public List<Message> Messages { get; }
+        public List<Message> Messages { get; set; }
         
         public bool Equals(SpfRecords other)
         {

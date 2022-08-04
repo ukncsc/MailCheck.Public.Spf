@@ -20,7 +20,7 @@ namespace MailCheck.Spf.Poller.Rules.Record
                 string errorMessage = string.Format(SpfRulesResource.ExplanationDoesntOccurMoreThanOnceErrorMessage, spfRecord.Domain, explanationCount);
                 string markdown = string.Format(SpfRulesMarkdownResource.ExplanationDoesntOccurMoreThanOnceErrorMessage, spfRecord.Domain, explanationCount);
 
-                errors.Add(new Error(Id, ErrorType.Error, errorMessage, markdown));
+                errors.Add(new Error(Id, "mailcheck.spf.explanationOccursMoreThanOnce", ErrorType.Error, errorMessage, markdown));
             }
 
             return Task.FromResult(errors);

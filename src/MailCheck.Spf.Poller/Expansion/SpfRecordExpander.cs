@@ -46,7 +46,7 @@ namespace MailCheck.Spf.Poller.Expansion
                             if (term is Include include && !branchAntecedents.Add(include.DomainSpec.Domain))
                             {
                                 string markdown = string.Format(SpfExpansionMarkdownResource.RecursionDetectedErrorMessage, term.Value);
-                                term.AddError(new Error(RecursionErrorId, ErrorType.Error, SpfExpansionResource.RecursionDetectedErrorMessage, markdown));
+                                term.AddError(new Error(RecursionErrorId, "mailcheck.spf.recursionDetected", ErrorType.Error, SpfExpansionResource.RecursionDetectedErrorMessage, markdown));
                                 break;
                             }
 

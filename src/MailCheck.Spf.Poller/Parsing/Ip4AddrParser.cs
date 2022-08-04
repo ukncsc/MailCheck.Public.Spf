@@ -25,7 +25,7 @@ namespace MailCheck.Spf.Poller.Parsing
                     string errorMessage = string.Format(SpfParserResource.InvalidValueErrorMessage, "ipv4 address", ipAddressString);
                     string markdown = string.Format(SpfParserMarkdownResource.InvalidValueErrorMessage, "ipv4 address", ipAddressString);
 
-                    ip4Addr.AddError(new Error(Id, ErrorType.Error, errorMessage, markdown));
+                    ip4Addr.AddError(new Error(Id, "mailcheck.spf.ipv4AddrInvalid", ErrorType.Error, errorMessage, markdown));
                 }
             }
             else
@@ -33,7 +33,7 @@ namespace MailCheck.Spf.Poller.Parsing
                 string errorMessage = string.Format(SpfParserResource.InvalidValueErrorMessage, "ip address", ipAddressString);
                 string markdown = string.Format(SpfParserMarkdownResource.InvalidValueErrorMessage, "ip address", ipAddressString);
 
-                ip4Addr.AddError(new Error(Id, ErrorType.Error, errorMessage, markdown));
+                ip4Addr.AddError(new Error(Id, "mailcheck.spf.ipv4AdddrInvalid", ErrorType.Error, errorMessage, markdown));
             }
 
             return ip4Addr;
